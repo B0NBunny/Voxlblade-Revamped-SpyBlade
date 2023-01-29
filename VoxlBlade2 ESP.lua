@@ -15,7 +15,7 @@ ESP.Enemies = false
 -- UI Library
 local Finity = loadstring(game:HttpGet("https://pastebin.com/raw/nB2byebL"))()
 local FinityWindow = Finity.new(DarkMode)
-FinityWindow.ChangeToggleKey(KeybindCode)
+FinityWindow.ChangeToggleKey(KeybindCode or Enum.KeyCode.Period)
 
 -- Category
 local ESPCat = FinityWindow:Category("Entity ESP")
