@@ -15,7 +15,7 @@ ESP.Enemies = false
 -- UI Library
 local Finity = loadstring(game:HttpGet("https://pastebin.com/raw/nB2byebL"))()
 local FinityWindow = Finity.new(DarkMode)
-FinityWindow.ChangeToggleKey(Enum.KeyCode[Keybind])
+FinityWindow.ChangeToggleKey(Keybind)
 
 -- Category
 local ESPCat = FinityWindow:Category("Entity ESP")
@@ -60,8 +60,6 @@ ESPInfo:Cheat("Label", "Magical Enemies show up as 'Cyan'")
 ESPInfo:Cheat("Label", "Legendary Enemies show up as 'Yellow'")
 ESPInfo:Cheat("Label", "Corrupt Enemies show up as 'Lavender'")
 ESPInfo:Cheat("Label", "Bloody Enemies show up as 'Maroon'")
-ESPInfo:Cheat("Label", "")
-ESPInfo:Cheat("Label", "Entities over 700 studs away don't show up")
 
 -- Item ESP Info
 ItemINFO:Cheat("Label", "Items out of range don't appear on list")
