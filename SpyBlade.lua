@@ -404,11 +404,11 @@ local function CharAdded(char)
                     PrimaryPart = c;
                     Color = ESP_Coloring.Players;
                     IsEnabled = "Player_Enabled";
-                    IsBoxEnabled = ESP.Player_Boxes;
-		            IsNameEnabled = ESP.Player_Names;
-		            IsDistanceEnabled = ESP.Player_Distances;
-		            IsTracerEnabled = ESP.Player_Tracers;
-		            IsHealthEnabled = ESP.Player_Healths;            
+                    IsBoxEnabled = "Player_Boxes";
+		            IsNameEnabled = "Player_Names";
+		            IsDistanceEnabled = "Player_Distances";
+		            IsTracerEnabled = "Player_Tracers";
+		            IsHealthEnabled = "Player_Healths";            
                 })
             end
         end)
@@ -418,12 +418,12 @@ local function CharAdded(char)
             Player = p;
             PrimaryPart = char.HumanoidRootPart;
             Color = ESP_Coloring.Players;
-            IsEnabled = ESP.Player_Enabled;
-            IsBoxEnabled = ESP.Player_Boxes;
-            IsNameEnabled = ESP.Player_Names;
-            IsDistanceEnabled = ESP.Player_Distances;
-            IsTracerEnabled = ESP.Player_Tracers;
-            IsHealthEnabled = ESP.Player_Healths;            
+            IsEnabled = "Player_Enabled";
+            IsBoxEnabled = "Player_Boxes";
+            IsNameEnabled = "Player_Names";
+            IsDistanceEnabled = "Player_Distances";
+            IsTracerEnabled = "Player_Tracers";
+            IsHealthEnabled = "Player_Healths";            
         })
     end
 end
@@ -455,50 +455,51 @@ while true do
             local model = v:FindFirstChildOfClass("Model")
             if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
                 -- Add ESP
-                ESP:Add(model.HumanoidRootPart,{
-                    Name = v.Name;
-                    Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
-                    IsEnabled = "Enemies";
-                })
-                Instance.new("Part",model).Name = "EGG"
+                if ESP.Enemy_Enabled then
+                    ESP:Add(model.HumanoidRootPart,{
+                        Name = v.Name;
+                        PrimaryPart = model.HumanoidRootPart;
+                        Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
+                        IsEnabled = "Enemy_Enabled";
+                        IsBoxEnabled = "Enemy_Boxes";
+                        IsNameEnabled = "Enemy_Names";
+                        IsDistanceEnabled = "Enemy_Distances";
+                        IsTracerEnabled = "Enemy_Tracers";
+                        IsHealthEnabled = "Enemy_Healths"; 
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
             end
         end
         wait()
     end
     if interactables_folder then
         -- Get Interactables
-        local interactables_children = interactables_folder:GetChildren()
-        for i, v in ipairs(interactables_children) do
-            local model = v:FindFirstChildOfClass("Model")
-            if model and v:FindFirstChild("Dialog") and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
+        local interactables_children = interactables_folder:GetDescendants()
+        for i, prompt in ipairs(interactables_children) do
+            local model = prompt.Parent
+            if model and prompt.Name == (Dialog_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
-                if ESP.NPCs then
+                if ESP.NPC_Enabled then
                     ESP:Add(v,{
                         Name = v.Name,
-                        Color = BrickColor.new("Lime green").Color,
-                        IsEnabled = "NPCs"
+                        Color = ESP_Coloring.NPCs,
+                        IsEnabled = "NPC_Enabled";
+                        IsBoxEnabled = "NPC_Boxes";
+                        IsNameEnabled = "NPC_Names";
+                        IsDistanceEnabled = "NPC_Distances";
+                        IsTracerEnabled = "NPC_Tracers";
                     })
                     Instance.new("Part",model).Name = "EGG"
                 end
-            elseif model and not model:FindFirstChild("EGG") then
-                -- Add ESP
-                ESP:Add(v, {
-                    Name = v.Name,
-                    Color = BrickColor.new("Magenta").Color,
-                    IsEnabled = v.Name
-                })
-                ESP[v.Name] = false
-                ItemESP:Cheat("Checkbox", v.Name, function(State)
-                    ESP[v.Name] = State
-                end)
-                -- Remember
-                Instance.new("Part",model).Name = "EGG"
+            elseif model and prompt.Name == () and not model:FindFirstChild("EGG") then
+                
             end
         end
     end
     if shrines_folder then
         -- Get Shrines
-        local shrines_children = shrines_folder:GetChildren()
+        --local shrines_children = shrines_folder:GetChildren()
     end
     if infusers_folder then
         -- Get Infusers
