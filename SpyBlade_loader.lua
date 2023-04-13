@@ -10,14 +10,17 @@ ESP_Coloring = {
     Enemies = {
       Legendary = BrickColor.new("Bright yellow").Color;
       Magical = BrickColor.new("Cyan").Color;
-      Corrupt = BrickColor.new("Lavender").Color;
+      Corrupt = BrickColor.new("Bright purple").Color;
       Bloody = BrickColor.new("Maroon").Color;
       Easter = BrickColor.new("Pastel violet").Color;
       Other = BrickColor.new("Really red").Color;
     };
   };
   Items = BrickColor.new("Magenta").Color;
-  Shrines = BrickColor.new("Pastel Blue").Color;
+  Shrines = BrickColor.new("Medium Royal blue").Color;
+  Infusers = BrickColor.new("Pastel blue-green").Color;
+  Dungeons = BrickColor.new("CGA brown").Color;
+  VoidRifts = BrickColor.new("Dark indigo").Color;
 }
 
 
