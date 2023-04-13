@@ -403,6 +403,7 @@ local function CharAdded(char)
                     Player = p;
                     PrimaryPart = c;
                     Color = ESP_Coloring.Players;
+                    IsEnabled = "Player_Enabled";
                     IsBoxEnabled = ESP.Player_Boxes;
 		            IsNameEnabled = ESP.Player_Names;
 		            IsDistanceEnabled = ESP.Player_Distances;
@@ -413,15 +414,16 @@ local function CharAdded(char)
         end)
     else
         ESP:Add(char, {
-            Name = p.Name,
-            Player = p,
-            PrimaryPart = char.HumanoidRootPart,
-            Color = ESP_Coloring.Players
+            Name = p.Name;
+            Player = p;
+            PrimaryPart = char.HumanoidRootPart;
+            Color = ESP_Coloring.Players;
+            IsEnabled = ESP.Player_Enabled;
             IsBoxEnabled = ESP.Player_Boxes;
             IsNameEnabled = ESP.Player_Names;
             IsDistanceEnabled = ESP.Player_Distances;
             IsTracerEnabled = ESP.Player_Tracers;
-            IsHealthEnabled = ESP.Player_Healths;  
+            IsHealthEnabled = ESP.Player_Healths;            
         })
     end
 end
@@ -454,9 +456,9 @@ while true do
             if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 ESP:Add(model.HumanoidRootPart,{
-                    Name = v.Name,
-                    Color = BrickColor.new(v:FindFirstChild("Legendary") and v.Legendary.Enabled and "Bright yellow" or v:FindFirstChild("Magical") and v.Magical.Enabled and "Cyan" or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and "Lavender" or v:FindFirstChild("Bloody") and v.Bloody.Enabled and "Maroon" or "Really red").Color,
-                    IsEnabled = "Enemies"
+                    Name = v.Name;
+                    Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
+                    IsEnabled = "Enemies";
                 })
                 Instance.new("Part",model).Name = "EGG"
             end
