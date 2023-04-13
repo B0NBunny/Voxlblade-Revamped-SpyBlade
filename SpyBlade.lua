@@ -511,4 +511,4 @@ while true do
     end
 end
 
-return
+return true
