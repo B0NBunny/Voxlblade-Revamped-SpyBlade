@@ -4,7 +4,7 @@ local ESP = {
     Boxes = true,
     BoxShift = CFrame.new(0,-1.5,0),
 	BoxSize = Vector3.new(4,6,0),
-    Color = Color3.fromRGB(255, 170, 0),
+    Color = Color3.new(1, 1, 1),
     FaceCamera = false,
     Names = true,
     TeamColor = true,
@@ -274,7 +274,13 @@ function ESP:Add(obj, options)
         IsEnabled = options.IsEnabled,
         Temporary = options.Temporary,
         ColorDynamic = options.ColorDynamic,
-        RenderInNil = options.RenderInNil
+        RenderInNil = options.RenderInNil,
+		--Edited by B0NBunny
+		IsBoxEnabled = options.IsBoxEnabled,
+		IsNameEnabled = options.IsNameEnabled,
+		IsDistanceEnabled = options.IsDistanceEnabled,
+		IsTracerEnabled = options.IsTracerEnabled,
+		IsHealthEnabled = options.IsHealthEnabled
     }, boxBase)
 
     if self:GetBox(obj) then
@@ -286,7 +292,7 @@ function ESP:Add(obj, options)
         Color = color,
         Transparency = 1,
         Filled = false,
-        Visible = self.Enabled and self.Boxes
+        Visible = self.Enabled and box.IsBoxEnabled or self.Boxes
     })
     box.Components["Name"] = Draw("Text", {
 		Text = box.Name,
@@ -294,22 +300,30 @@ function ESP:Add(obj, options)
 		Center = true,
 		Outline = true,
         Size = 19,
-        Visible = self.Enabled and self.Names
+        Visible = self.Enabled and box.IsNameEnabled or self.Names
 	})
 	box.Components["Distance"] = Draw("Text", {
 		Color = box.Color,
 		Center = true,
 		Outline = true,
         Size = 19,
-        Visible = self.Enabled and self.Names
+        Visible = self.Enabled and box.IsDistanceEnabled or self.Names
 	})
-	
 	box.Components["Tracer"] = Draw("Line", {
 		Thickness = ESP.Thickness,
 		Color = box.Color,
         Transparency = 1,
-        Visible = self.Enabled and self.Tracers
+        Visible = self.Enabled and box.IsTracerEnabled or self.Tracers
     })
+	--Edited by B0NBunny
+	box.Components["Health"] = Draw("Text", {
+		Text = "HP:",
+		Color = box.Color,
+		Center = true,
+		Outline = true,
+        Size = 19,
+        Visible = self.Enabled and box.IsHealthEnabled or self.Names
+	})
     self.Objects[obj] = box
     
     obj.AncestryChanged:Connect(function(_, parent)
@@ -333,41 +347,6 @@ function ESP:Add(obj, options)
     end
 
     return box
-end
-
-local function CharAdded(char)
-    local p = plrs:GetPlayerFromCharacter(char)
-    if not char:FindFirstChild("HumanoidRootPart") then
-        local ev
-        ev = char.ChildAdded:Connect(function(c)
-            if c.Name == "HumanoidRootPart" then
-                ev:Disconnect()
-                ESP:Add(char, {
-                    Name = p.Name,
-                    Player = p,
-                    PrimaryPart = c
-                })
-            end
-        end)
-    else
-        ESP:Add(char, {
-            Name = p.Name,
-            Player = p,
-            PrimaryPart = char.HumanoidRootPart
-        })
-    end
-end
-local function PlayerAdded(p)
-    p.CharacterAdded:Connect(CharAdded)
-    if p.Character then
-        coroutine.wrap(CharAdded)(p.Character)
-    end
-end
-plrs.PlayerAdded:Connect(PlayerAdded)
-for i,v in pairs(plrs:GetPlayers()) do
-    if v ~= plr then
-        PlayerAdded(v)
-    end
 end
 
 game:GetService("RunService").RenderStepped:Connect(function()
