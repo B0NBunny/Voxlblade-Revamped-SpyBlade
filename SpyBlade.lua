@@ -465,12 +465,12 @@ while true do
         -- Get Interactables
         local interactables_children = interactables_folder:GetDescendants()
         for i, prompt in ipairs(interactables_children) do
-            local model = prompt.Parent
+            local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
             if model and prompt.Name == (Dialog_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.NPC_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.NPCs,
                         IsEnabled = "NPC_Enabled";
                         IsBoxEnabled = "NPC_Boxes";
