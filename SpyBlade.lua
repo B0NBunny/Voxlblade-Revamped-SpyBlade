@@ -83,6 +83,12 @@ ESP.Shrine_Names = false
 ESP.Shrine_Distances = false
 ESP.Shrine_Tracers = false
 
+-- Settings Values
+defaultRangeValue = 250
+ESP.Player_Range = defaultRangeValue
+ESP.Enemy_Range = defaultRangeValue
+ESP.NPC_Range = defaultRangeValue
+
 -- UI Library
 local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/Finity_Lib.lua", true))() --https://pastebin.com/raw/nB2byebL
 local FinityWindow = Finity.new(DarkMode)
@@ -111,41 +117,29 @@ Categories.Shrine = FinityWindow:Category("Shrine ESP");
 local Sectors = {};
 Sectors.Player = {};
     Sectors.Player.Settings = Categories.Player:Sector("ESP Settings");
-    Sectors.Player.Toggles = Categories.Player:Sector("Toggles");
 Sectors.Enemy = {};
     Sectors.Enemy.Settings = Categories.Enemy:Sector("ESP Settings");
-    Sectors.Enemy.Toggles = Categories.Enemy:Sector("Toggles");
 Sectors.NPC = {};
     Sectors.NPC.Settings = Categories.NPC:Sector("ESP Settings");
-    Sectors.NPC.Toggles = Categories.NPC:Sector("Toggles");
 Sectors.BloodHand = {};
     Sectors.BloodHand.Settings = Categories.BloodHand:Sector("ESP Settings");
-    Sectors.BloodHand.Toggles = Categories.BloodHand:Sector("Toggles");
 Sectors.Shop = {};
     Sectors.Shop.Settings = Categories.Shop:Sector("ESP Settings");
-    Sectors.Shop.Toggles = Categories.Shop:Sector("Toggles");
     Sectors.Shop.Shops = Categories.Shop:Sector("Shops");
 Sectors.Crafting = {};
     Sectors.Crafting.Settings = Categories.Crafting:Sector("ESP Settings");
-    Sectors.Crafting.Toggles = Categories.Crafting:Sector("Toggles");
 Sectors.Anvil = {};
     Sectors.Anvil.Settings = Categories.Anvil:Sector("ESP Settings");
-    Sectors.Anvil.Toggles = Categories.Anvil:Sector("Toggles");
 Sectors.Infuser = {};
     Sectors.Infuser.Settings = Categories.Infuser:Sector("ESP Settings");
-    Sectors.Infuser.Toggles = Categories.Infuser:Sector("Toggles");
 Sectors.Transfer = {};
     Sectors.Transfer.Settings = Categories.Transfer:Sector("ESP Settings");
-    Sectors.Transfer.Toggles = Categories.Transfer:Sector("Toggles");
 Sectors.Dungeon = {};
     Sectors.Dungeon.Settings = Categories.Dungeon:Sector("ESP Settings");
-    Sectors.Dungeon.Toggles = Categories.Dungeon:Sector("Toggles");
 Sectors.VoidRift = {};
     Sectors.VoidRift.Settings = Categories.VoidRift:Sector("ESP Settings");
-    Sectors.VoidRift.Toggles = Categories.VoidRift:Sector("Toggles");
 Sectors.Shrine = {};
     Sectors.Shrine.Settings = Categories.Shrine:Sector("ESP Settings");
-    Sectors.Shrine.Toggles = Categories.Shrine:Sector("Toggles");
 
 -- Player ESP Settings
 Sectors.Player.Settings:Cheat("Checkbox", "Boxes", function(State)
@@ -163,10 +157,16 @@ end)
 Sectors.Player.Settings:Cheat("Checkbox", "Health", function(State)
     ESP.Player_Healths = State
 end)
--- Player ESP Toggles
-Sectors.Player.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Player.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Player_Enabled = State
 end)
+Sectors.Player.Settings:Cheat("Slider", "Range", function(NewValue)
+    ESP.Player_Range = NewValue
+end, {
+    default = defaultRangeValue;
+    min = 50;
+    max = 10000;
+})
 
 -- Enemy ESP Settings
 Sectors.Enemy.Settings:Cheat("Checkbox", "Boxes", function(State)
@@ -184,10 +184,16 @@ end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Health", function(State)
     ESP.Enemy_Healths = State
 end)
--- Enemy ESP Toggles
-Sectors.Enemy.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Enemy.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Enemy_Enabled = State
 end)
+Sectors.Enemy.Settings:Cheat("Slider", "Range", function(NewValue)
+    ESP.Enemy_Range = NewValue
+end, {
+    default = defaultRangeValue;
+    min = 50;
+    max = 10000;
+})
     
 -- NPC ESP Settings
 Sectors.NPC.Settings:Cheat("Checkbox", "Boxes", function(State)
@@ -202,10 +208,16 @@ end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.NPC_Tracers = State
 end)
--- NPC ESP Toggles
-Sectors.NPC.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.NPC.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.NPC_Enabled = State
 end)
+Sectors.NPC.Settings:Cheat("Slider", "Range", function(NewValue)
+    ESP.NPC_Range = NewValue
+end, {
+    default = defaultRangeValue;
+    min = 50;
+    max = 10000;
+})
 
 -- BloodHand ESP Settings
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Boxes", function(State)
@@ -220,8 +232,7 @@ end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.BloodHand_Tracers = State
 end)
--- BloodHand ESP Toggles
-Sectors.BloodHand.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.BloodHand.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.BloodHand_Enabled = State
 end)
     
@@ -238,8 +249,7 @@ end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Shop_Tracers = State
 end)
--- Shop ESP Toggles
-Sectors.Shop.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Shop.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Shop_Enabled = State
 end)
     
@@ -256,8 +266,7 @@ end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Crafting_Tracers = State
 end)
--- Crafting ESP Toggles
-Sectors.Crafting.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Crafting.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Crafting_Enabled = State
 end)
     
@@ -274,8 +283,7 @@ end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Anvil_Tracers = State
 end)
--- Anvil ESP Toggles
-Sectors.Anvil.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Anvil.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Anvil_Enabled = State
 end)
     
@@ -292,8 +300,7 @@ end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Infuser_Tracers = State
 end)
--- Infuser ESP Toggles
-Sectors.Infuser.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Infuser.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Infuser_Enabled = State
 end)
     
@@ -310,8 +317,7 @@ end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Transfer_Tracers = State
 end)
--- Transfer ESP Toggles
-Sectors.Transfer.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Transfer.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Transfer_Enabled = State
 end)
     
@@ -328,8 +334,7 @@ end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Dungeon_Tracers = State
 end)
--- Dungeon ESP Toggles
-Sectors.Dungeon.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Dungeon.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Dungeon_Enabled = State
 end)
 
@@ -346,8 +351,7 @@ end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.VoidRift_Tracers = State
 end)
--- VoidRift ESP Toggles
-Sectors.VoidRift.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.VoidRift.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.VoidRift_Enabled = State
 end)
     
@@ -364,8 +368,7 @@ end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Shrine_Tracers = State
 end)
--- Shrine ESP Toggles
-Sectors.Shrine.Toggles:Cheat("Checkbox", "Enabled", function(State)
+Sectors.Shrine.Settings:Cheat("Checkbox", "Enabled", function(State)
     ESP.Shrine_Enabled = State
 end)
 
@@ -412,7 +415,8 @@ local function CharAdded(char)
             IsNameEnabled = "Player_Names";
             IsDistanceEnabled = "Player_Distances";
             IsTracerEnabled = "Player_Tracers";
-            IsHealthEnabled = "Player_Healths";            
+            IsHealthEnabled = "Player_Healths";
+            RangeValue = "Player_Range";
         })
     end
 end
@@ -454,7 +458,12 @@ while true do
                         IsNameEnabled = "Enemy_Names";
                         IsDistanceEnabled = "Enemy_Distances";
                         IsTracerEnabled = "Enemy_Tracers";
-                        IsHealthEnabled = "Enemy_Healths"; 
+                        IsHealthEnabled = "Enemy_Healths";
+                        RangeValue = "Enemy_Range";
+                        HealthAttributePart = v;
+                        HealthAttributeName = "HP";
+                        MaxHealthAttributePart = v;
+                        MaxHealthAttributeName = "MAXHP";
                     })
                     Instance.new("Part",model).Name = "EGG"
                 end
@@ -478,6 +487,7 @@ while true do
                         IsNameEnabled = "NPC_Names";
                         IsDistanceEnabled = "NPC_Distances";
                         IsTracerEnabled = "NPC_Tracers";
+                        RangeValue = "NPC_Range";
                     })
                     Instance.new("Part",model).Name = "EGG"
                 end
@@ -501,7 +511,7 @@ while true do
                     ESP:Add(model,{
                         Name = model.Name,
                         Color = ESP_Coloring.Shops,
-                        IsEnabled = "Shop_Enabled";
+                        IsEnabled = model.Name;
                         IsBoxEnabled = "Shop_Boxes";
                         IsNameEnabled = "Shop_Names";
                         IsDistanceEnabled = "Shop_Distances";
