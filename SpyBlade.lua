@@ -100,6 +100,10 @@ local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBun
 local FinityWindow = Finity.new(DarkMode)
 FinityWindow.ChangeToggleKey(KeybindCode or Enum.KeyCode.Period)
 
+local CreditsCategory = FinityWindow:Category("Credits");
+local CreditsSector = CreditsCategory:Sector("Credits");
+CreditsSector:Cheat("Label", "Made by: CatOverEdge")
+
 -- Category
 local Categories = {};
 Categories.Player = FinityWindow:Category("Player ESP");
@@ -375,7 +379,6 @@ end)
 Sectors.Shrine.Toggles:Cheat("Checkbox", "Enabled", function(State)
     ESP.Shrine_Enabled = State
 end)
---ItemINFO:Cheat("Label", "Items out of range don't appear on list")
 
 -- Script
 --[[
