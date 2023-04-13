@@ -19,81 +19,81 @@ local VoidRift_PromptName = "VoidRift" --Ancestor: workspace.Interactables
 local Shrine_PromptName = "Shrine" --Ancestor: workspace.Shrines
 
 -- Enabled Booleans
-ESP.Players_Enabled = false
-ESP.Enemies_Enabled = false
-ESP.NPCs_Enabled = false
-ESP.BloodHands_Enabled = false
-ESP.Shops_Enabled = false
-ESP.Craftings_Enabled = false
-ESP.Anvils_Enabled = false
-ESP.Infusers_Enabled = false
-ESP.Transfers_Enabled = false
-ESP.Dungeons_Enabled = false
-ESP.VoidRifts_Enabled = false
-ESP.Shrines_Enabled = false
+ESP.Player_Enabled = false
+ESP.Enemy_Enabled = false
+ESP.NPC_Enabled = false
+ESP.BloodHand_Enabled = false
+ESP.Shop_Enabled = false
+ESP.Crafting_Enabled = false
+ESP.Anvil_Enabled = false
+ESP.Infuser_Enabled = false
+ESP.Transfer_Enabled = false
+ESP.Dungeon_Enabled = false
+ESP.VoidRift_Enabled = false
+ESP.Shrine_Enabled = false
 
 -- Settings Booleans
-ESP.Players_Boxes = false
-ESP.Players_Names = false
-ESP.Players_Distances = false
-ESP.Players_Tracers = false
-ESP.Players_Healths = false
+ESP.Player_Boxes = false
+ESP.Player_Names = false
+ESP.Player_Distances = false
+ESP.Player_Tracers = false
+ESP.Player_Healths = false
 
-ESP.Enemies_Boxes = false
-ESP.Enemies_Names = false
-ESP.Enemies_Distances = false
-ESP.Enemies_Tracers = false
-ESP.Enemies_Healths = false
+ESP.Enemy_Boxes = false
+ESP.Enemy_Names = false
+ESP.Enemy_Distances = false
+ESP.Enemy_Tracers = false
+ESP.Enemy_Healths = false
 
-ESP.NPCs_Boxes = false
-ESP.NPCs_Names = false
-ESP.NPCs_Distances = false
-ESP.NPCs_Tracers = false
+ESP.NPC_Boxes = false
+ESP.NPC_Names = false
+ESP.NPC_Distances = false
+ESP.NPC_Tracers = false
 
-ESP.BloodHands_Boxes = false
-ESP.BloodHands_Names = false
-ESP.BloodHands_Distances = false
-ESP.BloodHands_Tracers = false
+ESP.BloodHand_Boxes = false
+ESP.BloodHand_Names = false
+ESP.BloodHand_Distances = false
+ESP.BloodHand_Tracers = false
 
-ESP.Shops_Boxes = false
-ESP.Shops_Names = false
-ESP.Shops_Distances = false
-ESP.Shops_Tracers = false
+ESP.Shop_Boxes = false
+ESP.Shop_Names = false
+ESP.Shop_Distances = false
+ESP.Shop_Tracers = false
 
-ESP.Craftings_Boxes = false
-ESP.Craftings_Names = false
-ESP.Craftings_Distances = false
-ESP.Craftings_Tracers = false
+ESP.Crafting_Boxes = false
+ESP.Crafting_Names = false
+ESP.Crafting_Distances = false
+ESP.Crafting_Tracers = false
 
-ESP.Anvils_Boxes = false
-ESP.Anvils_Names = false
-ESP.Anvils_Distances = false
-ESP.Anvils_Tracers = false
+ESP.Anvil_Boxes = false
+ESP.Anvil_Names = false
+ESP.Anvil_Distances = false
+ESP.Anvil_Tracers = false
 
-ESP.Infusers_Boxes = false
-ESP.Infusers_Names = false
-ESP.Infusers_Distances = false
-ESP.Infusers_Tracers = false
+ESP.Infuser_Boxes = false
+ESP.Infuser_Names = false
+ESP.Infuser_Distances = false
+ESP.Infuser_Tracers = false
 
-ESP.Transfers_Boxes = false
-ESP.Transfers_Names = false
-ESP.Transfers_Distances = false
-ESP.Transfers_Tracers = false
+ESP.Transfer_Boxes = false
+ESP.Transfer_Names = false
+ESP.Transfer_Distances = false
+ESP.Transfer_Tracers = false
 
-ESP.Dungeons_Boxes = false
-ESP.Dungeons_Names = false
-ESP.Dungeons_Distances = false
-ESP.Dungeons_Tracers = false
+ESP.Dungeon_Boxes = false
+ESP.Dungeon_Names = false
+ESP.Dungeon_Distances = false
+ESP.Dungeon_Tracers = false
 
-ESP.VoidRifts_Boxes = false
-ESP.VoidRifts_Names = false
-ESP.VoidRifts_Distances = false
-ESP.VoidRifts_Tracers = false
+ESP.VoidRift_Boxes = false
+ESP.VoidRift_Names = false
+ESP.VoidRift_Distances = false
+ESP.VoidRift_Tracers = false
 
-ESP.Shrines_Boxes = false
-ESP.Shrines_Names = false
-ESP.Shrines_Distances = false
-ESP.Shrines_Tracers = false
+ESP.Shrine_Boxes = false
+ESP.Shrine_Names = false
+ESP.Shrine_Distances = false
+ESP.Shrine_Tracers = false
 
 -- UI Library
 local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/Finity_Lib.lua"))() --https://pastebin.com/raw/nB2byebL
@@ -120,87 +120,262 @@ local Sectors = {};
 Sectors.Player = {};
     Sectors.Player.Settings = Categories.Player:Sector("ESP Settings");
     Sectors.Player.Toggles = Categories.Player:Sector("Toggles");
-    Sectors.Player.Info = Categories.Player:Sector("Info");
 Sectors.Enemy = {};
     Sectors.Enemy.Settings = Categories.Enemy:Sector("ESP Settings");
     Sectors.Enemy.Toggles = Categories.Enemy:Sector("Toggles");
-    Sectors.Enemy.Info = Categories.Enemy:Sector("Info");
 Sectors.NPC = {};
     Sectors.NPC.Settings = Categories.NPC:Sector("ESP Settings");
     Sectors.NPC.Toggles = Categories.NPC:Sector("Toggles");
-    Sectors.NPC.Info = Categories.NPC:Sector("Info");
 Sectors.BloodHand = {};
     Sectors.BloodHand.Settings = Categories.BloodHand:Sector("ESP Settings");
     Sectors.BloodHand.Toggles = Categories.BloodHand:Sector("Toggles");
-    Sectors.BloodHand.Info = Categories.BloodHand:Sector("Info");
 Sectors.Shop = {};
     Sectors.Shop.Settings = Categories.Shop:Sector("ESP Settings");
     Sectors.Shop.Toggles = Categories.Shop:Sector("Toggles");
-    Sectors.Shop.Info = Categories.Shop:Sector("Info");
 Sectors.Crafting = {};
     Sectors.Crafting.Settings = Categories.Crafting:Sector("ESP Settings");
     Sectors.Crafting.Toggles = Categories.Crafting:Sector("Toggles");
-    Sectors.Crafting.Info = Categories.Crafting:Sector("Info");
 Sectors.Anvil = {};
     Sectors.Anvil.Settings = Categories.Anvil:Sector("ESP Settings");
     Sectors.Anvil.Toggles = Categories.Anvil:Sector("Toggles");
-    Sectors.Anvil.Info = Categories.Anvil:Sector("Info");
 Sectors.Infuser = {};
     Sectors.Infuser.Settings = Categories.Infuser:Sector("ESP Settings");
     Sectors.Infuser.Toggles = Categories.Infuser:Sector("Toggles");
-    Sectors.Infuser.Info = Categories.Infuser:Sector("Info");
 Sectors.Transfer = {};
     Sectors.Transfer.Settings = Categories.Transfer:Sector("ESP Settings");
     Sectors.Transfer.Toggles = Categories.Transfer:Sector("Toggles");
-    Sectors.Transfer.Info = Categories.Transfer:Sector("Info");
 Sectors.Dungeon = {};
     Sectors.Dungeon.Settings = Categories.Dungeon:Sector("ESP Settings");
     Sectors.Dungeon.Toggles = Categories.Dungeon:Sector("Toggles");
-    Sectors.Dungeon.Info = Categories.Dungeon:Sector("Info");
 Sectors.VoidRift = {};
     Sectors.VoidRift.Settings = Categories.VoidRift:Sector("ESP Settings");
     Sectors.VoidRift.Toggles = Categories.VoidRift:Sector("Toggles");
-    Sectors.VoidRift.Info = Categories.VoidRift:Sector("Info");
 Sectors.Shrine = {};
     Sectors.Shrine.Settings = Categories.Shrine:Sector("ESP Settings");
     Sectors.Shrine.Toggles = Categories.Shrine:Sector("Toggles");
-    Sectors.Shrine.Info = Categories.Shrine:Sector("Info");
 
--- ESP Settings
-ESPSettings:Cheat("Checkbox", "Tracers", function(State)
-    ESP.Traces = State
+-- Player ESP Settings
+Sectors.Player.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Player_Boxes = State
 end)
-ESPSettings:Cheat("Checkbox", "Names", function(State)
-    ESP.Names = State
+Sectors.Player.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Player_Names = State
 end)
-ESPSettings:Cheat("Checkbox", "Boxes", function(State)
-    ESP.Boxes = State
+Sectors.Player.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Player_Distances = State
 end)
-
--- ESP Toggles
-ESPToggles:Cheat("Checkbox", "Players", function(State)
-    ESP.Players = State
+Sectors.Player.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Player_Tracers = State
 end)
-ESPToggles:Cheat("Checkbox", "Enemies", function(State)
-    ESP.Enemies = State
+Sectors.Player.Settings:Cheat("Checkbox", "Health", function(State)
+    ESP.Player_Healths = State
 end)
-ESPToggles:Cheat("Checkbox", "NPCs", function(State)
-    ESP.NPCs = State
+-- Player ESP Toggles
+Sectors.Player.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Player_Enabled = State
 end)
 
--- ESP Info
-ESPInfo:Cheat("Label", "Items show up as 'Purple'")
-ESPInfo:Cheat("Label", "Players show up as 'White'")
-ESPInfo:Cheat("Label", "NPCs show up as 'Lime'")
-ESPInfo:Cheat("Label", "")
-ESPInfo:Cheat("Label", "Normal Enemies show up as 'Red'")
-ESPInfo:Cheat("Label", "Magical Enemies show up as 'Cyan'")
-ESPInfo:Cheat("Label", "Legendary Enemies show up as 'Yellow'")
-ESPInfo:Cheat("Label", "Corrupt Enemies show up as 'Lavender'")
-ESPInfo:Cheat("Label", "Bloody Enemies show up as 'Maroon'")
+-- Enemy ESP Settings
+Sectors.Enemy.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Enemy_Boxes = State
+end)
+Sectors.Enemy.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Enemy_Names = State
+end)
+Sectors.Enemy.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Enemy_Distances = State
+end)
+Sectors.Enemy.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Enemy_Tracers = State
+end)
+Sectors.Enemy.Settings:Cheat("Checkbox", "Health", function(State)
+    ESP.Enemy_Healths = State
+end)
+-- Enemy ESP Toggles
+Sectors.Enemy.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Enemy_Enabled = State
+end)
+    
+-- NPC ESP Settings
+Sectors.NPC.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.NPC_Boxes = State
+end)
+Sectors.NPC.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.NPC_Names = State
+end)
+Sectors.NPC.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.NPC_Distances = State
+end)
+Sectors.NPC.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.NPC_Tracers = State
+end)
+-- NPC ESP Toggles
+Sectors.NPC.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.NPC_Enabled = State
+end)
 
--- Item ESP Info
-ItemINFO:Cheat("Label", "Items out of range don't appear on list")
+-- BloodHand ESP Settings
+Sectors.BloodHand.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.BloodHand_Boxes = State
+end)
+Sectors.BloodHand.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.BloodHand_Names = State
+end)
+Sectors.BloodHand.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.BloodHand_Distances = State
+end)
+Sectors.BloodHand.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.BloodHand_Tracers = State
+end)
+-- BloodHand ESP Toggles
+Sectors.BloodHand.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.BloodHand_Enabled = State
+end)
+    
+-- Shop ESP Settings
+Sectors.Shop.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Shop_Boxes = State
+end)
+Sectors.Shop.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Shop_Names = State
+end)
+Sectors.Shop.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Shop_Distances = State
+end)
+Sectors.Shop.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Shop_Tracers = State
+end)
+-- Shop ESP Toggles
+Sectors.Shop.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Shop_Enabled = State
+end)
+    
+-- Crafting ESP Settings
+Sectors.Crafting.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Crafting_Boxes = State
+end)
+Sectors.Crafting.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Crafting_Names = State
+end)
+Sectors.Crafting.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Crafting_Distances = State
+end)
+Sectors.Crafting.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Crafting_Tracers = State
+end)
+-- Crafting ESP Toggles
+Sectors.Crafting.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Crafting_Enabled = State
+end)
+    
+-- Anvil ESP Settings
+Sectors.Anvil.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Anvil_Boxes = State
+end)
+Sectors.Anvil.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Anvil_Names = State
+end)
+Sectors.Anvil.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Anvil_Distances = State
+end)
+Sectors.Anvil.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Anvil_Tracers = State
+end)
+-- Anvil ESP Toggles
+Sectors.Anvil.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Anvil_Enabled = State
+end)
+    
+-- Infuser ESP Settings
+Sectors.Infuser.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Infuser_Boxes = State
+end)
+Sectors.Infuser.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Infuser_Names = State
+end)
+Sectors.Infuser.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Infuser_Distances = State
+end)
+Sectors.Infuser.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Infuser_Tracers = State
+end)
+-- Infuser ESP Toggles
+Sectors.Infuser.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Infuser_Enabled = State
+end)
+    
+-- Transfer ESP Settings
+Sectors.Transfer.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Transfer_Boxes = State
+end)
+Sectors.Transfer.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Transfer_Names = State
+end)
+Sectors.Transfer.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Transfer_Distances = State
+end)
+Sectors.Transfer.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Transfer_Tracers = State
+end)
+-- Transfer ESP Toggles
+Sectors.Transfer.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Transfer_Enabled = State
+end)
+    
+-- Dungeon ESP Settings
+Sectors.Dungeon.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Dungeon_Boxes = State
+end)
+Sectors.Dungeon.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Dungeon_Names = State
+end)
+Sectors.Dungeon.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Dungeon_Distances = State
+end)
+Sectors.Dungeon.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Dungeon_Tracers = State
+end)
+-- Dungeon ESP Toggles
+Sectors.Dungeon.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Dungeon_Enabled = State
+end)
+
+-- VoidRift ESP Settings
+Sectors.VoidRift.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.VoidRift_Boxes = State
+end)
+Sectors.VoidRift.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.VoidRift_Names = State
+end)
+Sectors.VoidRift.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.VoidRift_Distances = State
+end)
+Sectors.VoidRift.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.VoidRift_Tracers = State
+end)
+-- VoidRift ESP Toggles
+Sectors.VoidRift.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.VoidRift_Enabled = State
+end)
+    
+-- Shrine ESP Settings
+Sectors.Shrine.Settings:Cheat("Checkbox", "Boxes", function(State)
+    ESP.Shrine_Boxes = State
+end)
+Sectors.Shrine.Settings:Cheat("Checkbox", "Names", function(State)
+    ESP.Shrine_Names = State
+end)
+Sectors.Shrine.Settings:Cheat("Checkbox", "Distances", function(State)
+    ESP.Shrine_Distances = State
+end)
+Sectors.Shrine.Settings:Cheat("Checkbox", "Tracers", function(State)
+    ESP.Shrine_Tracers = State
+end)
+-- Shrine ESP Toggles
+Sectors.Shrine.Toggles:Cheat("Checkbox", "Enabled", function(State)
+    ESP.Shrine_Enabled = State
+end)
+--ItemINFO:Cheat("Label", "Items out of range don't appear on list")
 
 -- Script
 --[[
