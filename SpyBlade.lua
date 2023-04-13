@@ -6,18 +6,6 @@ ESP:Toggle(true)
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
 
--- ProximityPrompt Names ("Types")
-local Dialog_PromptName = "Dialog" --Ancestor: workspace.NPCs / workspace.Interactables
-local BloodHand_PromptName = "BloodHand" --Ancestor: workspace.Interactables
-local Shop_PromptName = "Shop" --Ancestor: workspace.Interactables
-local Crafting_PromptName = "Crafting" --Ancestor: workspace.Interactables
-local Anvil_PromptName = "Anvil" --Ancestor: workspace.Interactables
-local Infuser_PromptName = "Infuser" --Ancestor: workspace.Infusers
-local Transfer_PromptName = "Transfer" --Ancestor: workspace.Interactables
-local Dungeon_PromptName = "Dungeon" --Ancestor: workspace.Others
-local VoidRift_PromptName = "VoidRift" --Ancestor: workspace.Interactables
-local Shrine_PromptName = "Shrine" --Ancestor: workspace.Shrines
-
 -- Enabled Booleans
 ESP.Player_Enabled = false
 ESP.Enemy_Enabled = false
