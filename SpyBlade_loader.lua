@@ -28,6 +28,4 @@ ESP_Coloring = {
   
   Shrines = BrickColor.new("Medium Royal blue").Color;
 }
-
-local ScriptLink = "https://github.com/B0NBunny/Voxlblade-2-Scripts/blob/main/SpyBlade.lua"
-loadstring(game:HttpGet(ScriptLink, true))()
+loadstring(game:HttpGet("https://github.com/B0NBunny/Voxlblade-2-Scripts/blob/main/SpyBlade.lua", true))()
