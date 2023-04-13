@@ -170,14 +170,7 @@ function boxBase:Update()
     if not workspace:IsAncestorOf(self.PrimaryPart) and not self.RenderInNil then
         allow = false
     end
-
-    if not allow then
-        for i,v in pairs(self.Components) do
-            v.Visible = false
-        end
-        return
-    end
-
+    
     if ESP.Highlighted == self.Object then
         color = ESP.HighlightColor
     end
@@ -187,6 +180,24 @@ function boxBase:Update()
     if ESP.FaceCamera then
         cf = CFrame.new(cf.p, cam.CFrame.p)
     end
+    
+    if self.RangeValue then
+        local rangeval = ESP[self.RangeValue]
+        if rangeval then
+            local currentdistance = (cam.CFrame.p - cf.p).magnitude
+            if rangeval < currentdistance then
+                allow = false
+            end
+        end
+    end
+    
+    if not allow then
+        for i,v in pairs(self.Components) do
+            v.Visible = false
+        end
+        return
+    end
+    --calculations--
     local size = self.Size
     local locs = {
         TopLeft = cf * ESP.BoxShift * CFrame.new(size.X/2,size.Y/2,0),
@@ -225,7 +236,6 @@ function boxBase:Update()
         local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
         
         if Vis5 then
-            amounttags+=1
             self.Components.Name.Visible = true
             self.Components.Name.Position = Vector2.new(TagPos.X, TagPos.Y)
             self.Components.Name.Text = self.Name
@@ -244,7 +254,22 @@ function boxBase:Update()
             amounttags+=1
             self.Components.Health.Visible = true
             self.Components.Health.Position = Vector2.new(TagPos.X, TagPos.Y + (14*amounttags))
-            self.Components.Health.Text = "HP:"
+			
+            local gotHP = 0
+            local gotMaxHP = 0
+            local hum = self.PrimaryPart.Parent:FindFirstChildOfClass("Humanoid")
+	        if self.HealthAttributePart and self.HealthAttributeName then
+                gotHP = self.HealthAttributePart:GetAttribute(self.HealthAttributeName)
+            elseif hum then
+                gotHP = hum.Health
+            end
+            if self.MaxHealthAttributePart and self.MaxHealthAttributeName then
+                gotMaxHP = self.MaxHealthAttributePart:GetAttribute(self.MaxHealthAttributeName)
+            elseif hum then
+                gotMaxHP = hum.MaxHealth
+            end
+            
+            self.Components.Health.Text = "HP:[ "..gotHP.." / "..gotMaxHP.." ]"
             self.Components.Health.Color = color
         else
             self.Components.Health.Visible = false
