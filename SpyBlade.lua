@@ -483,8 +483,8 @@ while true do
             elseif model and prompt.Name == (BloodHand_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.BloodHand_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.BloodHands,
                         IsEnabled = "BloodHand_Enabled";
                         IsBoxEnabled = "BloodHand_Boxes";
@@ -497,8 +497,8 @@ while true do
             elseif model and prompt.Name == (Shop_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.Shop_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.Shops,
                         IsEnabled = "Shop_Enabled";
                         IsBoxEnabled = "Shop_Boxes";
@@ -511,8 +511,8 @@ while true do
             elseif model and prompt.Name == (Crafting_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.Crafting_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.Craftings,
                         IsEnabled = "Crafting_Enabled";
                         IsBoxEnabled = "Crafting_Boxes";
@@ -525,8 +525,8 @@ while true do
             elseif model and prompt.Name == (Anvil_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.Anvil_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.Anvils,
                         IsEnabled = "Anvil_Enabled";
                         IsBoxEnabled = "Anvil_Boxes";
@@ -539,8 +539,8 @@ while true do
             elseif model and prompt.Name == (Transfer_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.Transfer_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.Transfers,
                         IsEnabled = "Transfer_Enabled";
                         IsBoxEnabled = "Transfer_Boxes";
@@ -553,8 +553,8 @@ while true do
             elseif model and prompt.Name == (VoidRift_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.VoidRift_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.VoidRifts,
                         IsEnabled = "VoidRift_Enabled";
                         IsBoxEnabled = "VoidRift_Boxes";
@@ -571,12 +571,12 @@ while true do
         -- Get Shrines
         local shrines_children = shrines_folder:GetDescendants()
         for i, prompt in ipairs(shrines_children) do
-            local model = prompt.Parent
+            local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
             if model and prompt.Name == (Shrine_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.Shrine_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.Shrines,
                         IsEnabled = "Shrine_Enabled";
                         IsBoxEnabled = "Shrine_Boxes";
@@ -593,12 +593,12 @@ while true do
         -- Get Infusers
         local infusers_children = infusers_folder:GetDescendants()
         for i, prompt in ipairs(infusers_children) do
-            local model = prompt.Parent
+            local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
             if model and prompt.Name == (Infuser_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.Infuser_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.Infusers,
                         IsEnabled = "Infuser_Enabled";
                         IsBoxEnabled = "Infuser_Boxes";
@@ -615,12 +615,12 @@ while true do
         -- Get Dungeons
         local others_children = others_folder:GetDescendants()
         for i, prompt in ipairs(others_children) do
-            local model = prompt.Parent
+            local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
             if model and prompt.Name == (Dungeon_PromptName) and not model:FindFirstChild("EGG") then
                 -- Add ESP
                 if ESP.Dungeon_Enabled then
-                    ESP:Add(v,{
-                        Name = v.Name,
+                    ESP:Add(model,{
+                        Name = model.Name,
                         Color = ESP_Coloring.Dungeons,
                         IsEnabled = "Dungeon_Enabled";
                         IsBoxEnabled = "Dungeon_Boxes";
