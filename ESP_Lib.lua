@@ -258,7 +258,7 @@ function boxBase:Update()
             local gotHP = 0
             local gotMaxHP = 0
             local hum = self.PrimaryPart.Parent:FindFirstChildOfClass("Humanoid")
-	        if self.HealthAttributePart and self.HealthAttributeName then
+	          if self.HealthAttributePart and self.HealthAttributeName then
                 gotHP = self.HealthAttributePart:GetAttribute(self.HealthAttributeName)
             elseif hum then
                 gotHP = hum.Health
@@ -268,10 +268,8 @@ function boxBase:Update()
             elseif hum then
                 gotMaxHP = hum.MaxHealth
             end
-		    gotHP = math.ceil(gotHP)
-            gotMaxHP = math.ceil(gotMaxHP)
             
-            self.Components.Health.Text = "HP:[ "..gotHP.." / "..gotMaxHP.." ]"
+            self.Components.Health.Text = "HP:[ "..math.ceil(gotHP).." / "..math.ceil(gotMaxHP).." ]"
             self.Components.Health.Color = color
         else
             self.Components.Health.Visible = false
