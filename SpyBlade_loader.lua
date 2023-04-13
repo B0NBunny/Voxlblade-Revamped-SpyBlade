@@ -21,6 +21,7 @@ ESP_Coloring = {
   Craftings = BrickColor.new("Pastel blue-green").Color;
   Anvils = BrickColor.new("Pastel blue-green").Color;
   Infusers = BrickColor.new("Pastel blue-green").Color;
+  Transfers = BrickColor.new("Pastel blue-green").Color;
   
   Dungeons = BrickColor.new("CGA brown").Color;
   VoidRifts = BrickColor.new("CGA brown").Color;
