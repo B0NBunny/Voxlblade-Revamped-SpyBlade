@@ -1,5 +1,5 @@
 -- ESP Function
-local ESP = loadstring(game:HttpGet("https://kiriot22.com/releases/ESP.lua"))()
+local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/ESP_Lib"))() --https://kiriot22.com/releases/ESP.lua
 ESP:Toggle(true)
 
 -- Don't worry about it
@@ -11,15 +11,20 @@ ESP.Boxes = false
 ESP.NPCs = false
 ESP.Items = false
 ESP.Enemies = false
+ESP.Shrines = false
 
 -- UI Library
-local Finity = loadstring(game:HttpGet("https://pastebin.com/raw/nB2byebL"))()
+local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/Finity_Lib.lua"))() --https://pastebin.com/raw/nB2byebL
 local FinityWindow = Finity.new(DarkMode)
 FinityWindow.ChangeToggleKey(KeybindCode or Enum.KeyCode.Period)
 
 -- Category
 local ESPCat = FinityWindow:Category("Entity ESP")
 local ItemCat = FinityWindow:Category("Item ESP")
+local ShrineCat = FinityWindow:Category("Shrine ESP")
+local InfusersCat = FinityWindow:Category("Infuser ESP")
+local DungeonCat = FinityWindow:Category("Dungeon ESP")
+local VoidRiftCat = FinityWindow:Category("VoidRift ESP")
 
 -- Sectors
 local ESPSettings = ESPCat:Sector("ESP Settings")
