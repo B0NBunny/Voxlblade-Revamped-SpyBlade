@@ -393,10 +393,10 @@ local function CharAdded(char)
                     Color = ESP_Coloring.Players;
                     IsEnabled = "Player_Enabled";
                     IsBoxEnabled = "Player_Boxes";
-		            IsNameEnabled = "Player_Names";
-		            IsDistanceEnabled = "Player_Distances";
-		            IsTracerEnabled = "Player_Tracers";
-		            IsHealthEnabled = "Player_Healths";            
+                    IsNameEnabled = "Player_Names";
+                    IsDistanceEnabled = "Player_Distances";
+                    IsTracerEnabled = "Player_Tracers";
+                    IsHealthEnabled = "Player_Healths";            
                 })
             end
         end)
@@ -480,21 +480,157 @@ while true do
                     })
                     Instance.new("Part",model).Name = "EGG"
                 end
-            elseif model and prompt.Name == () and not model:FindFirstChild("EGG") then
-                
+            elseif model and prompt.Name == (BloodHand_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.BloodHand_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.BloodHands,
+                        IsEnabled = "BloodHand_Enabled";
+                        IsBoxEnabled = "BloodHand_Boxes";
+                        IsNameEnabled = "BloodHand_Names";
+                        IsDistanceEnabled = "BloodHand_Distances";
+                        IsTracerEnabled = "BloodHand_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            elseif model and prompt.Name == (Shop_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.Shop_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.Shops,
+                        IsEnabled = "Shop_Enabled";
+                        IsBoxEnabled = "Shop_Boxes";
+                        IsNameEnabled = "Shop_Names";
+                        IsDistanceEnabled = "Shop_Distances";
+                        IsTracerEnabled = "Shop_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            elseif model and prompt.Name == (Crafting_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.Crafting_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.Craftings,
+                        IsEnabled = "Crafting_Enabled";
+                        IsBoxEnabled = "Crafting_Boxes";
+                        IsNameEnabled = "Crafting_Names";
+                        IsDistanceEnabled = "Crafting_Distances";
+                        IsTracerEnabled = "Crafting_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            elseif model and prompt.Name == (Anvil_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.Anvil_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.Anvils,
+                        IsEnabled = "Anvil_Enabled";
+                        IsBoxEnabled = "Anvil_Boxes";
+                        IsNameEnabled = "Anvil_Names";
+                        IsDistanceEnabled = "Anvil_Distances";
+                        IsTracerEnabled = "Anvil_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            elseif model and prompt.Name == (Transfer_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.Transfer_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.Transfers,
+                        IsEnabled = "Transfer_Enabled";
+                        IsBoxEnabled = "Transfer_Boxes";
+                        IsNameEnabled = "Transfer_Names";
+                        IsDistanceEnabled = "Transfer_Distances";
+                        IsTracerEnabled = "Transfer_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            elseif model and prompt.Name == (VoidRift_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.VoidRift_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.VoidRifts,
+                        IsEnabled = "VoidRift_Enabled";
+                        IsBoxEnabled = "VoidRift_Boxes";
+                        IsNameEnabled = "VoidRift_Names";
+                        IsDistanceEnabled = "VoidRift_Distances";
+                        IsTracerEnabled = "VoidRift_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
             end
         end
     end
     if shrines_folder then
         -- Get Shrines
-        --local shrines_children = shrines_folder:GetChildren()
+        local shrines_children = shrines_folder:GetDescendants()
+        for i, prompt in ipairs(shrines_children) do
+            local model = prompt.Parent
+            if model and prompt.Name == (Shrine_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.Shrine_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.Shrines,
+                        IsEnabled = "Shrine_Enabled";
+                        IsBoxEnabled = "Shrine_Boxes";
+                        IsNameEnabled = "Shrine_Names";
+                        IsDistanceEnabled = "Shrine_Distances";
+                        IsTracerEnabled = "Shrine_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            end
+        end
     end
     if infusers_folder then
         -- Get Infusers
-        
+        local infusers_children = infusers_folder:GetDescendants()
+        for i, prompt in ipairs(infusers_children) do
+            local model = prompt.Parent
+            if model and prompt.Name == (Infuser_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.Infuser_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.Infusers,
+                        IsEnabled = "Infuser_Enabled";
+                        IsBoxEnabled = "Infuser_Boxes";
+                        IsNameEnabled = "Infuser_Names";
+                        IsDistanceEnabled = "Infuser_Distances";
+                        IsTracerEnabled = "Infuser_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            end
+        end
     end
     if others_folder then
         -- Get Dungeons
-        
+        local others_children = others_folder:GetDescendants()
+        for i, prompt in ipairs(others_children) do
+            local model = prompt.Parent
+            if model and prompt.Name == (Dungeon_PromptName) and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.Dungeon_Enabled then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = ESP_Coloring.Dungeons,
+                        IsEnabled = "Dungeon_Enabled";
+                        IsBoxEnabled = "Dungeon_Boxes";
+                        IsNameEnabled = "Dungeon_Names";
+                        IsDistanceEnabled = "Dungeon_Distances";
+                        IsTracerEnabled = "Dungeon_Tracers";
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            end
+        end
     end
 end
