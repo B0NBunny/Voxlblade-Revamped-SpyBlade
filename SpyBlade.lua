@@ -124,6 +124,7 @@ Sectors.BloodHand = {};
 Sectors.Shop = {};
     Sectors.Shop.Settings = Categories.Shop:Sector("ESP Settings");
     Sectors.Shop.Toggles = Categories.Shop:Sector("Toggles");
+    Sectors.Shop.Shops = Categories.Shop:Sector("Shops");
 Sectors.Crafting = {};
     Sectors.Crafting.Settings = Categories.Crafting:Sector("ESP Settings");
     Sectors.Crafting.Toggles = Categories.Crafting:Sector("Toggles");
@@ -506,6 +507,10 @@ while true do
                         IsDistanceEnabled = "Shop_Distances";
                         IsTracerEnabled = "Shop_Tracers";
                     })
+                    ESP[model.Name] = false
+                    Sectors.Shop.Shops:Cheat("Checkbox", model.Name, function(State)
+                        ESP[model.Name] = State
+                    end)
                     Instance.new("Part",model).Name = "EGG"
                 end
             elseif model and prompt.Name == (Crafting_PromptName) and not model:FindFirstChild("EGG") then
