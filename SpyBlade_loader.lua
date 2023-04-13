@@ -3,6 +3,8 @@ Keybind = "Period"
 KeybindCode = Enum.KeyCode.Period
 DarkMode = true
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/SpyBlade.lua", true))()
+
 ESP_Coloring = {
   Players = BrickColor.new("White").Color,
 
@@ -28,4 +30,5 @@ ESP_Coloring = {
 
   Shrines = BrickColor.new("Medium Royal blue").Color
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/SpyBlade.lua", true))()
+
+print("A")
