@@ -396,9 +396,15 @@ local function CharAdded(char)
             if c.Name == "HumanoidRootPart" then
                 ev:Disconnect()
                 ESP:Add(char, {
-                    Name = p.Name,
-                    Player = p,
-                    PrimaryPart = c
+                    Name = p.Name;
+                    Player = p;
+                    PrimaryPart = c;
+                    Color = ESP_Coloring.Players;
+                    IsBoxEnabled = ESP.Player_Boxes;
+		            IsNameEnabled = ESP.Player_Names;
+		            IsDistanceEnabled = ESP.Player_Distances;
+		            IsTracerEnabled = ESP.Player_Tracers;
+		            IsHealthEnabled = ESP.Player_Healths;            
                 })
             end
         end)
@@ -408,6 +414,11 @@ local function CharAdded(char)
             Player = p,
             PrimaryPart = char.HumanoidRootPart,
             Color = ESP_Coloring.Players
+            IsBoxEnabled = ESP.Player_Boxes;
+            IsNameEnabled = ESP.Player_Names;
+            IsDistanceEnabled = ESP.Player_Distances;
+            IsTracerEnabled = ESP.Player_Tracers;
+            IsHealthEnabled = ESP.Player_Healths;  
         })
     end
 end
@@ -429,55 +440,67 @@ while true do
     local npcs_folder = workspace:FindFirstChild("NPCS")
     local interactables_folder = workspace:FindFirstChild("Interactables")
     local shrines_folder = workspace:FindFirstChild("Shrines")
+    local infusers_folder = workspace:FindFirstChild("Infusers")
+    local others_folder = workspace:FindFirstChild("Others")
     
-    if npcs_folder
-    -- Get Enemies
-    local npcs_children = workspace.NPCS:GetChildren()
-    for i = 1, #npcs_children do
-        local v = npcs_children[i]
-        local model = v:FindFirstChildOfClass("Model")
-        if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
-            -- Add ESP
-            ESP:Add(model.HumanoidRootPart,{
-                Name = v.Name,
-                Color = BrickColor.new(v:FindFirstChild("Legendary") and v.Legendary.Enabled and "Bright yellow" or v:FindFirstChild("Magical") and v.Magical.Enabled and "Cyan" or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and "Lavender" or v:FindFirstChild("Bloody") and v.Bloody.Enabled and "Maroon" or "Really red").Color,
-                IsEnabled = "Enemies"
-            })
-            Instance.new("Part",model).Name = "EGG"
-        end
-    end
-    wait()
-    -- Get Items
-    local interactables_children = workspace.Interactables:GetChildren()
-    table.sort(interactables_children, function(a,b)
-        return a.Name < b.Name
-    end)
-    for i = 1, #interactables_children do
-        local v = interactables_children[i]
-        local model = v:FindFirstChildOfClass("Model")
-        if model and v:FindFirstChild("Dialog") and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
-            -- Add ESP
-            if ESP.NPCs then
-                ESP:Add(v,{
+    if npcs_folder then
+        -- Get Enemies
+        local npcs_children = npcs_folder:GetChildren()
+        for i, v in ipairs(npcs_children) do
+            local model = v:FindFirstChildOfClass("Model")
+            if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                ESP:Add(model.HumanoidRootPart,{
                     Name = v.Name,
-                    Color = BrickColor.new("Lime green").Color,
-                    IsEnabled = "NPCs"
+                    Color = BrickColor.new(v:FindFirstChild("Legendary") and v.Legendary.Enabled and "Bright yellow" or v:FindFirstChild("Magical") and v.Magical.Enabled and "Cyan" or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and "Lavender" or v:FindFirstChild("Bloody") and v.Bloody.Enabled and "Maroon" or "Really red").Color,
+                    IsEnabled = "Enemies"
                 })
                 Instance.new("Part",model).Name = "EGG"
             end
-        elseif model and not model:FindFirstChild("EGG") then
-            -- Add ESP
-            ESP:Add(v, {
-                Name = v.Name,
-                Color = BrickColor.new("Magenta").Color,
-                IsEnabled = v.Name
-            })
-            ESP[v.Name] = false
-            ItemESP:Cheat("Checkbox", v.Name, function(State)
-                ESP[v.Name] = State
-            end)
-            -- Remember
-            Instance.new("Part",model).Name = "EGG"
         end
+        wait()
+    end
+    if interactables_folder then
+        -- Get Interactables
+        local interactables_children = interactables_folder:GetChildren()
+        for i, v in ipairs(interactables_children) do
+            local model = v:FindFirstChildOfClass("Model")
+            if model and v:FindFirstChild("Dialog") and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                if ESP.NPCs then
+                    ESP:Add(v,{
+                        Name = v.Name,
+                        Color = BrickColor.new("Lime green").Color,
+                        IsEnabled = "NPCs"
+                    })
+                    Instance.new("Part",model).Name = "EGG"
+                end
+            elseif model and not model:FindFirstChild("EGG") then
+                -- Add ESP
+                ESP:Add(v, {
+                    Name = v.Name,
+                    Color = BrickColor.new("Magenta").Color,
+                    IsEnabled = v.Name
+                })
+                ESP[v.Name] = false
+                ItemESP:Cheat("Checkbox", v.Name, function(State)
+                    ESP[v.Name] = State
+                end)
+                -- Remember
+                Instance.new("Part",model).Name = "EGG"
+            end
+        end
+    end
+    if shrines_folder then
+        -- Get Shrines
+        local shrines_children = shrines_folder:GetChildren()
+    end
+    if infusers_folder then
+        -- Get Infusers
+        
+    end
+    if others_folder then
+        -- Get Dungeons
+        
     end
 end
