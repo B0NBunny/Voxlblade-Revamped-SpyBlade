@@ -19,3 +19,8 @@ ESP_Coloring = {
   Items = BrickColor.new("Magenta").Color;
   Shrines = BrickColor.new("Pastel Blue").Color;
 }
+
+
+
+local ScriptLink = "https://github.com/B0NBunny/Voxlblade-2-Scripts/blob/main/SpyBlade.lua"
+loadstring(game:HttpGet(ScriptLink, true))()
