@@ -19,7 +19,7 @@ ESP_Coloring = {
   BloodHands = BrickColor.new("Lime green").Color;
 
   Shops = BrickColor.new("Pastel blue-green").Color;
-  Crafting = BrickColor.new("Pastel blue-green").Color;
+  Craftings = BrickColor.new("Pastel blue-green").Color;
   Anvils = BrickColor.new("Pastel blue-green").Color;
   Infusers = BrickColor.new("Pastel blue-green").Color;
   
