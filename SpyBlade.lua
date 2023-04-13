@@ -33,47 +33,67 @@ ESP.VoidRifts_Enabled = false
 ESP.Shrines_Enabled = false
 
 -- Settings Booleans
-ESP.Players_Tracers = false
-ESP.Players_Names = false
 ESP.Players_Boxes = false
-ESP.Players_Health = false
+ESP.Players_Names = false
+ESP.Players_Distances = false
+ESP.Players_Tracers = false
+ESP.Players_Healths = false
 
-ESP.Enemies_Tracers = false
-ESP.Enemies_Names = false
 ESP.Enemies_Boxes = false
-ESP.Enemies_Health = false
+ESP.Enemies_Names = false
+ESP.Enemies_Distances = false
+ESP.Enemies_Tracers = false
+ESP.Enemies_Healths = false
 
-
-ESP.NPCs_Tracers = false
-ESP.NPCs_Names = false
 ESP.NPCs_Boxes = false
+ESP.NPCs_Names = false
+ESP.NPCs_Distances = false
+ESP.NPCs_Tracers = false
 
+ESP.BloodHands_Boxes = false
+ESP.BloodHands_Names = false
+ESP.BloodHands_Distances = false
+ESP.BloodHands_Tracers = false
 
-ESP.Items_Tracers = false
-ESP.Items_Names = false
-ESP.Items_Boxes = false
+ESP.Shops_Boxes = false
+ESP.Shops_Names = false
+ESP.Shops_Distances = false
+ESP.Shops_Tracers = false
 
+ESP.Craftings_Boxes = false
+ESP.Craftings_Names = false
+ESP.Craftings_Distances = false
+ESP.Craftings_Tracers = false
 
-ESP.Shrines_Tracers = false
-ESP.Shrines_Names = false
-ESP.Shrines_Boxes = false
+ESP.Anvils_Boxes = false
+ESP.Anvils_Names = false
+ESP.Anvils_Distances = false
+ESP.Anvils_Tracers = false
 
-
-ESP.Infusers_Tracers = false
-ESP.Infusers_Names = false
 ESP.Infusers_Boxes = false
+ESP.Infusers_Names = false
+ESP.Infusers_Distances = false
+ESP.Infusers_Tracers = false
 
+ESP.Transfers_Boxes = false
+ESP.Transfers_Names = false
+ESP.Transfers_Distances = false
+ESP.Transfers_Tracers = false
 
-ESP.Dungeons_Tracers = false
-ESP.Dungeons_Names = false
 ESP.Dungeons_Boxes = false
+ESP.Dungeons_Names = false
+ESP.Dungeons_Distances = false
+ESP.Dungeons_Tracers = false
 
-
-ESP.VoidRifts_Tracers = false
-ESP.VoidRifts_Names = false
 ESP.VoidRifts_Boxes = false
+ESP.VoidRifts_Names = false
+ESP.VoidRifts_Distances = false
+ESP.VoidRifts_Tracers = false
 
-
+ESP.Shrines_Boxes = false
+ESP.Shrines_Names = false
+ESP.Shrines_Distances = false
+ESP.Shrines_Tracers = false
 
 -- UI Library
 local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/Finity_Lib.lua"))() --https://pastebin.com/raw/nB2byebL
@@ -85,11 +105,15 @@ local Categories = {};
 Categories.Player = FinityWindow:Category("Player ESP");
 Categories.Enemy = FinityWindow:Category("Enemy ESP");
 Categories.NPC = FinityWindow:Category("NPC ESP");
-Categories.Item = FinityWindow:Category("Item ESP");
-Categories.Shrine = FinityWindow:Category("Shrine ESP");
+Categories.BloodHand = FinityWindow:Category("BloodHand ESP)
+Categories.Shop = FinityWindow:Category("Shop ESP");
+Categories.Crafting = FinityWindow:Category("Crafting ESP");
+Categories.Anvil = FinityWindow:Category("Anvil ESP");
 Categories.Infuser = FinityWindow:Category("Infuser ESP");
-Categories.Dungeon = FinityWindow:Category("Dungeon ESP");
-Categories.VoidRift = FinityWindow:Category("VoidRift ESP");
+Categories.Transfer = FinityWindow:Category("Transfer ESP");
+Categories.Dungeons = FinityWindow:Category("Dungeon ESP");
+Categories.VoidRifts = FinityWindow:Category("VoidRift ESP");
+Categories.Shrines = FinityWindow:Category("Shrine ESP");
 
 -- Sectors
 local Sectors = {};
