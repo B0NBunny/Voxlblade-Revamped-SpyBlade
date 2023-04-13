@@ -268,6 +268,8 @@ function boxBase:Update()
             elseif hum then
                 gotMaxHP = hum.MaxHealth
             end
+		    gotHP = math.ceil(gotHP)
+            gotMaxHP = math.ceil(gotMaxHP)
             
             self.Components.Health.Text = "HP:[ "..gotHP.." / "..gotMaxHP.." ]"
             self.Components.Health.Color = color
