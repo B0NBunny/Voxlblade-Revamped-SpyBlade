@@ -1,7 +1,0 @@
---Voxlblade Item/Enemy/NPC ESP by Brycki
-Keybind = "Period"
-KeybindCode = Enum.KeyCode.Period
-DarkMode = true
-
-local ScriptLink = "https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/SpyBlade.lua"
-loadstring(game:HttpGet(ScriptLink, true))()
