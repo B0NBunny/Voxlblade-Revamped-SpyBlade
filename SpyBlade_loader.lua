@@ -1,7 +1,7 @@
 --Voxlblade2 ESP by CatOverEdge
-Keybind = "Period"
-KeybindCode = Enum.KeyCode.Period
-DarkMode = true
+Keybind = "Period";
+KeybindCode = Enum.KeyCode.Period;
+DarkMode = true;
 
 ESP_Coloring = {
   Players = BrickColor.new("White").Color;
@@ -27,5 +27,5 @@ ESP_Coloring = {
   VoidRifts = BrickColor.new("CGA brown").Color;
   
   Shrines = BrickColor.new("Medium Royal blue").Color;
-}
+};
 loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/SpyBlade.lua"))()
