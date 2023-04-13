@@ -3,7 +3,7 @@ local ESP = {
     Enabled = false,
     Boxes = true,
     BoxShift = CFrame.new(0,-1.5,0),
-	BoxSize = Vector3.new(4,6,0),
+    BoxSize = Vector3.new(4,6,0),
     Color = Color3.new(1, 1, 1),
     FaceCamera = false,
     Names = true,
@@ -197,7 +197,7 @@ function boxBase:Update()
         Torso = cf * ESP.BoxShift
     }
 
-    if ESP.Boxes then
+    if ESP[self.IsBoxEnabled] then --Boxes
         local TopLeft, Vis1 = WorldToViewportPoint(cam, locs.TopLeft.p)
         local TopRight, Vis2 = WorldToViewportPoint(cam, locs.TopRight.p)
         local BottomLeft, Vis3 = WorldToViewportPoint(cam, locs.BottomLeft.p)
@@ -219,29 +219,57 @@ function boxBase:Update()
         self.Components.Quad.Visible = false
     end
 
-    if ESP.Names then
+    local amounttags = 0
+    
+    if ESP[self.IsNameEnabled] then --Names
         local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
         
         if Vis5 then
+            amounttags+=1
             self.Components.Name.Visible = true
             self.Components.Name.Position = Vector2.new(TagPos.X, TagPos.Y)
             self.Components.Name.Text = self.Name
             self.Components.Name.Color = color
-            
-            self.Components.Distance.Visible = true
-            self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + 14)
-            self.Components.Distance.Text = math.floor((cam.CFrame.p - cf.p).magnitude) .." studs away"
-            self.Components.Distance.Color = color
         else
             self.Components.Name.Visible = false
-            self.Components.Distance.Visible = false
         end
     else
         self.Components.Name.Visible = false
+    end
+    
+    if ESP[self.IsHealthEnabled] then --Health
+        local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
+        
+        if Vis5 then
+            amounttags+=1
+            self.Components.Health.Visible = true
+            self.Components.Health.Position = Vector2.new(TagPos.X, TagPos.Y + (14*amounttags))
+            self.Components.Health.Text = "HP:"
+            self.Components.Health.Color = color
+        else
+            self.Components.Health.Visible = false
+        end
+    else
+        self.Components.Health.Visible = false
+    end
+    
+    if ESP[self.IsDistanceEnabled] then --Distance
+        local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
+        
+        if Vis5 then
+            amounttags+=1
+            self.Components.Distance.Visible = true
+            self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + (14*amounttags))
+            self.Components.Distance.Text = math.floor((cam.CFrame.p - cf.p).magnitude) .." studs away"
+            self.Components.Distance.Color = color
+        else
+            self.Components.Distance.Visible = false
+        end
+    else
         self.Components.Distance.Visible = false
     end
     
-    if ESP.Tracers then
+    if ESP[self.IsTracerEnabled] then --Tracers
         local TorsoPos, Vis6 = WorldToViewportPoint(cam, locs.Torso.p)
 
         if Vis6 then
@@ -292,7 +320,7 @@ function ESP:Add(obj, options)
         Color = color,
         Transparency = 1,
         Filled = false,
-        Visible = self.Enabled and box.IsBoxEnabled or self.Boxes
+        Visible = self.Enabled and self[box.IsBoxEnabled] or false
     })
     box.Components["Name"] = Draw("Text", {
 		Text = box.Name,
@@ -300,20 +328,20 @@ function ESP:Add(obj, options)
 		Center = true,
 		Outline = true,
         Size = 19,
-        Visible = self.Enabled and box.IsNameEnabled or self.Names
+        Visible = self.Enabled and self[box.IsNameEnabled] or false
 	})
 	box.Components["Distance"] = Draw("Text", {
 		Color = box.Color,
 		Center = true,
 		Outline = true,
         Size = 19,
-        Visible = self.Enabled and box.IsDistanceEnabled or self.Names
+        Visible = self.Enabled and self[box.IsDistanceEnabled] or false
 	})
 	box.Components["Tracer"] = Draw("Line", {
 		Thickness = ESP.Thickness,
 		Color = box.Color,
         Transparency = 1,
-        Visible = self.Enabled and box.IsTracerEnabled or self.Tracers
+        Visible = self.Enabled and self[box.IsTracerEnabled] or false
     })
 	--Edited by B0NBunny
 	box.Components["Health"] = Draw("Text", {
@@ -322,7 +350,7 @@ function ESP:Add(obj, options)
 		Center = true,
 		Outline = true,
         Size = 19,
-        Visible = self.Enabled and box.IsHealthEnabled or self.Names
+        Visible = self.Enabled and self[box.IsHealthEnabled] or false
 	})
     self.Objects[obj] = box
     
