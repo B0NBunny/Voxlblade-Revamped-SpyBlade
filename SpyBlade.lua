@@ -3,12 +3,10 @@ local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/
 ESP:Toggle(true)
 
 -- Variables
-ESP.Color = Color3.new(1,1,1)
-ESP.Boxes = false
-ESP.Names = false
-ESP.Tracers = false
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
 
---ProximityPrompt Names ("Types")
+-- ProximityPrompt Names ("Types")
 local Dialog_PromptName = "Dialog" --Ancestor: workspace.NPCs / workspace.Interactables
 local BloodHand_PromptName = "BloodHand" --Ancestor: workspace.Interactables
 local Shop_PromptName = "Shop" --Ancestor: workspace.Interactables
@@ -20,21 +18,21 @@ local Dungeon_PromptName = "Dungeon" --Ancestor: workspace.Others
 local VoidRift_PromptName = "VoidRift" --Ancestor: workspace.Interactables
 local Shrine_PromptName = "Shrine" --Ancestor: workspace.Shrines
 
---Enabled Booleans
-ESP.Players = false
-ESP.Enemies = false
-ESP.NPCs = false
-ESP.BloodHands = false
-ESP.Shops = false
-ESP.Craftings = false
-ESP.Anvils = false
-ESP.Infusers = false
-ESP.Transfers = false
-ESP.Dungeons = false
-ESP.VoidRifts = false
-ESP.Shrines = false
+-- Enabled Booleans
+ESP.Players_Enabled = false
+ESP.Enemies_Enabled = false
+ESP.NPCs_Enabled = false
+ESP.BloodHands_Enabled = false
+ESP.Shops_Enabled = false
+ESP.Craftings_Enabled = false
+ESP.Anvils_Enabled = false
+ESP.Infusers_Enabled = false
+ESP.Transfers_Enabled = false
+ESP.Dungeons_Enabled = false
+ESP.VoidRifts_Enabled = false
+ESP.Shrines_Enabled = false
 
---Settings Booleans
+-- Settings Booleans
 ESP.Players_Tracers = false
 ESP.Players_Names = false
 ESP.Players_Boxes = false
@@ -173,6 +171,44 @@ ItemINFO:Cheat("Label", "Items out of range don't appear on list")
         workspace.Shrines is for Shrines only
         workspace.Infusers is for Infusers only
 ]]
+
+--Players
+local function CharAdded(char)
+    local p = plrs:GetPlayerFromCharacter(char)
+    if not char:FindFirstChild("HumanoidRootPart") then
+        local ev
+        ev = char.ChildAdded:Connect(function(c)
+            if c.Name == "HumanoidRootPart" then
+                ev:Disconnect()
+                ESP:Add(char, {
+                    Name = p.Name,
+                    Player = p,
+                    PrimaryPart = c
+                })
+            end
+        end)
+    else
+        ESP:Add(char, {
+            Name = p.Name,
+            Player = p,
+            PrimaryPart = char.HumanoidRootPart,
+            Color = ESP_Coloring.Players
+        })
+    end
+end
+local function PlayerAdded(p)
+    p.CharacterAdded:Connect(CharAdded)
+    if p.Character then
+        coroutine.wrap(CharAdded)(p.Character)
+    end
+end
+plrs.PlayerAdded:Connect(PlayerAdded)
+for i,v in pairs(plrs:GetPlayers()) do
+    if v ~= plr then
+        PlayerAdded(v)
+    end
+end
+
 
 while true do
     local npcs_folder = workspace:FindFirstChild("NPCS")
