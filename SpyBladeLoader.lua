@@ -32,7 +32,7 @@ ESP_Coloring = {
 
 -- ProximityPrompt Names ("Types")
 -- DON'T TOUCH
-Dialog_PromptName = "Dialog" --Ancestor: workspace.NPCs / workspace.Interactables
+Dialog_PromptName = "Dialog" --Ancestor: workspace.Interactables
 BloodHand_PromptName = "BloodHand" --Ancestor: workspace.Interactables
 Shop_PromptName = "Shop" --Ancestor: workspace.Interactables
 Crafting_PromptName = "Crafting" --Ancestor: workspace.Interactables
