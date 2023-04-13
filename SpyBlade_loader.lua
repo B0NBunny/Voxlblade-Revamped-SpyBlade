@@ -11,7 +11,6 @@ ESP_Coloring = {
       Magical = BrickColor.new("Cyan").Color;
       Corrupt = BrickColor.new("Bright purple").Color;
       Bloody = BrickColor.new("Maroon").Color;
-      Easter = BrickColor.new("Pastel violet").Color;
       Other = BrickColor.new("Really red").Color;
   };
   
