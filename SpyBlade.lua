@@ -4,38 +4,41 @@ ESP:Toggle(true)
 
 -- Variables
 ESP.Color = Color3.new(1,1,1)
+ESP.Boxes = false
+ESP.Names = false
+ESP.Tracers = false
 
 --ProximityPrompt Names ("Types")
-local DialogPromptName = "Dialog" --Ancestor: workspace.NPCs / workspace.Interactables
-local InfuserPromptName = "Infuser" --Ancestor: workspace.Infusers
-local ShrinePromptName = "Shrine" --Ancestor: workspace.Shrines
-local DungeonPromptName = "Dungeon" --Ancestor: workspace.Others
-local BloodHandPromptName = "BloodHand" --Ancestor: workspace.Interactables
-local TransferPromptName = "Transfer" --Ancestor: workspace.Interactables
-local AnvilPromptName = "Anvil" --Ancestor: workspace.Interactables
-local ShopPromptName = "Shop" --Ancestor: workspace.Interactables
-local CraftingPromptName = "Crafting" --Ancestor: workspace.Interactables
-local VoidRiftPromptName = "VoidRift" --Ancestor: workspace.Interactables
+local Dialog_PromptName = "Dialog" --Ancestor: workspace.NPCs / workspace.Interactables
+local BloodHand_PromptName = "BloodHand" --Ancestor: workspace.Interactables
+local Shop_PromptName = "Shop" --Ancestor: workspace.Interactables
+local Crafting_PromptName = "Crafting" --Ancestor: workspace.Interactables
+local Anvil_PromptName = "Anvil" --Ancestor: workspace.Interactables
+local Infuser_PromptName = "Infuser" --Ancestor: workspace.Infusers
+local Transfer_PromptName = "Transfer" --Ancestor: workspace.Interactables
+local Dungeon_PromptName = "Dungeon" --Ancestor: workspace.Others
+local VoidRift_PromptName = "VoidRift" --Ancestor: workspace.Interactables
+local Shrine_PromptName = "Shrine" --Ancestor: workspace.Shrines
 
 --Enabled Booleans
 ESP.Players = false
 ESP.Enemies = false
 ESP.NPCs = false
-ESP.Items = false
-ESP.Shrines = false
+ESP.BloodHands = false
+ESP.Shops = false
+ESP.Craftings = false
+ESP.Anvils = false
 ESP.Infusers = false
+ESP.Transfers = false
 ESP.Dungeons = false
 ESP.VoidRifts = false
-ESP.Shops = false
-ESP.Transfers = false
-ESP.
+ESP.Shrines = false
 
 --Settings Booleans
 ESP.Players_Tracers = false
 ESP.Players_Names = false
 ESP.Players_Boxes = false
 ESP.Players_Health = false
-
 
 ESP.Enemies_Tracers = false
 ESP.Enemies_Names = false
