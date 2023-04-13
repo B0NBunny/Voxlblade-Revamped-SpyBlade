@@ -1,4 +1,4 @@
---Voxlblade Item/Enemy/NPC ESP by Brycki
+--Voxlblade2 ESP by CatOverEdge
 Keybind = "Period"
 KeybindCode = Enum.KeyCode.Period
 DarkMode = true
