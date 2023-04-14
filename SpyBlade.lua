@@ -165,7 +165,7 @@ Sectors.Player.Settings:Cheat("Slider", "Range", function(NewValue)
 end, {
     default = defaultRangeValue;
     min = 50;
-    max = 10000;
+    max = 5000;
     suffix = " studs";
     precise = true;
 })
@@ -194,7 +194,7 @@ Sectors.Enemy.Settings:Cheat("Slider", "Range", function(NewValue)
 end, {
     default = defaultRangeValue;
     min = 50;
-    max = 10000;
+    max = 5000;
     suffix = " studs";
     precise = true;
 })
@@ -220,7 +220,7 @@ Sectors.NPC.Settings:Cheat("Slider", "Range", function(NewValue)
 end, {
     default = defaultRangeValue;
     min = 50;
-    max = 10000;
+    max = 5000;
     suffix = " studs";
     precise = true;
 })
