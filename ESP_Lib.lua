@@ -181,13 +181,10 @@ function boxBase:Update()
         cf = CFrame.new(cf.p, cam.CFrame.p)
     end
     
-    if self.RangeValue then
-        local rangeval = ESP[self.RangeValue]
-        if rangeval then
-            local currentdistance = (cam.CFrame.p - cf.p).magnitude
-            if rangeval < currentdistance then
-                allow = false
-            end
+    if ESP[self.RangeValue] then
+        local currentdistance = (cam.CFrame.p - cf.p).magnitude
+        if ESP[self.RangeValue] < currentdistance then
+            allow = false
         end
     end
     
@@ -333,7 +330,8 @@ function ESP:Add(obj, options)
 		IsNameEnabled = options.IsNameEnabled,
 		IsDistanceEnabled = options.IsDistanceEnabled,
 		IsTracerEnabled = options.IsTracerEnabled,
-		IsHealthEnabled = options.IsHealthEnabled
+		IsHealthEnabled = options.IsHealthEnabled,
+        RangeValue = options.RangeValue
     }, boxBase)
 
     if self:GetBox(obj) then
