@@ -448,35 +448,37 @@ task.spawn(function()
         local infusers_folder = workspace:FindFirstChild("Infusers")
         local others_folder = workspace:FindFirstChild("Others")
 
-        if npcs_folder then
-            -- Get Enemies
-            local npcs_children = npcs_folder:GetChildren()
-            for i, v in ipairs(npcs_children) do
-                local model = v:FindFirstChildOfClass("Model")
-                if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
-                    -- Add ESP
-                    if ESP.Enemy_Enabled then
-                        ESP:Add(model.HumanoidRootPart,{
-                            Name = v.Name;
-                            PrimaryPart = model.HumanoidRootPart;
-                            Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
-                            IsEnabled = "Enemy_Enabled";
-                            IsBoxEnabled = "Enemy_Boxes";
-                            IsNameEnabled = "Enemy_Names";
-                            IsDistanceEnabled = "Enemy_Distances";
-                            IsTracerEnabled = "Enemy_Tracers";
-                            IsHealthEnabled = "Enemy_Healths";
-                            RangeValue = "Enemy_Range";
-                            HealthAttributePart = v;
-                            HealthAttributeName = "HP";
-                            MaxHealthAttributePart = v;
-                            MaxHealthAttributeName = "MAXHP";
-                        })
-                        Instance.new("Part",model).Name = "EGG"
+        if ESP.Enemy_Enabled then
+            if npcs_folder then
+                -- Get Enemies
+                local npcs_children = npcs_folder:GetChildren()
+                for i, v in ipairs(npcs_children) do
+                    local model = v:FindFirstChildOfClass("Model")
+                    if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
+                        -- Add ESP
+                        if ESP.Enemy_Enabled then
+                            ESP:Add(model.HumanoidRootPart,{
+                                Name = v.Name;
+                                PrimaryPart = model.HumanoidRootPart;
+                                Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
+                                IsEnabled = "Enemy_Enabled";
+                                IsBoxEnabled = "Enemy_Boxes";
+                                IsNameEnabled = "Enemy_Names";
+                                IsDistanceEnabled = "Enemy_Distances";
+                                IsTracerEnabled = "Enemy_Tracers";
+                                IsHealthEnabled = "Enemy_Healths";
+                                RangeValue = "Enemy_Range";
+                                HealthAttributePart = v;
+                                HealthAttributeName = "HP";
+                                MaxHealthAttributePart = v;
+                                MaxHealthAttributeName = "MAXHP";
+                            })
+                            Instance.new("Part",model).Name = "EGG"
+                        end
                     end
                 end
+                wait()
             end
-            wait()
         end
         if interactables_folder then
             -- Get Interactables
@@ -666,4 +668,5 @@ task.spawn(function()
             end
        end
     end
+    wait()
 end)
