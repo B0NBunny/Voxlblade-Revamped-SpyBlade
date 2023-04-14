@@ -588,6 +588,7 @@ while true do
                 end
             end
         end
+        wait()
     end
     if shrines_folder then
         -- Get Shrines
@@ -610,6 +611,7 @@ while true do
                 end
             end
         end
+        wait()
     end
     if infusers_folder then
         -- Get Infusers
@@ -632,6 +634,7 @@ while true do
                 end
             end
         end
+        wait()
     end
     if others_folder then
         -- Get Dungeons
@@ -654,5 +657,6 @@ while true do
                 end
             end
         end
+        wait()
     end
 end
