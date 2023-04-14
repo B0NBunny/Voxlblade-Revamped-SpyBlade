@@ -166,6 +166,8 @@ end, {
     default = defaultRangeValue;
     min = 50;
     max = 10000;
+    suffix = " studs";
+    precise = true;
 })
 
 -- Enemy ESP Settings
@@ -193,6 +195,8 @@ end, {
     default = defaultRangeValue;
     min = 50;
     max = 10000;
+    suffix = " studs";
+    precise = true;
 })
     
 -- NPC ESP Settings
@@ -217,6 +221,8 @@ end, {
     default = defaultRangeValue;
     min = 50;
     max = 10000;
+    suffix = " studs";
+    precise = true;
 })
 
 -- BloodHand ESP Settings
