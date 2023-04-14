@@ -162,6 +162,7 @@ Sectors.Player.Settings:Cheat("Checkbox", "Enabled", function(State)
 end)
 Sectors.Player.Settings:Cheat("Slider", "Range", function(NewValue)
     ESP.Player_Range = NewValue
+    print(NewValue)
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -191,6 +192,7 @@ Sectors.Enemy.Settings:Cheat("Checkbox", "Enabled", function(State)
 end)
 Sectors.Enemy.Settings:Cheat("Slider", "Range", function(NewValue)
     ESP.Enemy_Range = NewValue
+    print(NewValue)
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -217,6 +219,7 @@ Sectors.NPC.Settings:Cheat("Checkbox", "Enabled", function(State)
 end)
 Sectors.NPC.Settings:Cheat("Slider", "Range", function(NewValue)
     ESP.NPC_Range = NewValue
+    print(NewValue)
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -406,7 +409,8 @@ local function CharAdded(char)
                     IsNameEnabled = "Player_Names";
                     IsDistanceEnabled = "Player_Distances";
                     IsTracerEnabled = "Player_Tracers";
-                    IsHealthEnabled = "Player_Healths";            
+                    IsHealthEnabled = "Player_Healths";
+                    RangeValue = "Player_Range";
                 })
             end
         end)
