@@ -666,7 +666,7 @@ task.spawn(function()
                 end
                 wait()
             end
-       end
+        end
+        wait()
     end
-    wait()
 end)
