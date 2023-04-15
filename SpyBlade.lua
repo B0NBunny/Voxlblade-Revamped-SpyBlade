@@ -257,7 +257,9 @@ Sectors.Shop.Settings:Cheat("Checkbox", "Tracers", function(State)
 end)
 -- Shop Info
 Sectors.Shop.Info:Cheat("Label", "Choose which shops you would like to be shown.")
-Sectors.Shop.Info:Cheat("Label", "This method of choice helps clean up /n your screen from the cluttering of /n too many overlapping ESP objects.")
+Sectors.Shop.Info:Cheat("Label", "This method of choice helps clean up your")
+Sectors.Shop.Info:Cheat("Label", "screen from the cluttering of too many")
+Sectors.Shop.Info:Cheat("Label", "overlapping ESP objects.")
     
 -- Crafting ESP Settings
 Sectors.Crafting.Settings:Cheat("Checkbox", "Boxes", function(State)
