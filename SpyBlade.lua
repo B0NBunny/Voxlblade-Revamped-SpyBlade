@@ -207,24 +207,31 @@ Sectors.Shrine = {};
 -- Player ESP Settings
 Sectors.Player.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Player_Boxes = State
+    savesettings()
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Player_Names = State
+    savesettings()
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Player_Distances = State
+    savesettings()
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Player_Tracers = State
+    savesettings()
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Health", function(State)
     savedsettings.Player_Healths = State
+    savesettings()
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.Player_Enabled = State
+    savesettings()
 end)
 Sectors.Player.Settings:Cheat("Slider", "Range", function(NewValue)
     savedsettings.Player_Range = NewValue
+    savesettings()
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -236,24 +243,31 @@ end, {
 -- Enemy ESP Settings
 Sectors.Enemy.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Enemy_Boxes = State
+    savesettings()
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Enemy_Names = State
+    savesettings()
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Enemy_Distances = State
+    savesettings()
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Enemy_Tracers = State
+    savesettings()
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Health", function(State)
     savedsettings.Enemy_Healths = State
+    savesettings()
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.Enemy_Enabled = State
+    savesettings()
 end)
 Sectors.Enemy.Settings:Cheat("Slider", "Range", function(NewValue)
     savedsettings.Enemy_Range = NewValue
+    savesettings()
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -265,21 +279,27 @@ end, {
 -- NPC ESP Settings
 Sectors.NPC.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.NPC_Boxes = State
+    savesettings()
 end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.NPC_Names = State
+    savesettings()
 end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.NPC_Distances = State
+    savesettings()
 end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.NPC_Tracers = State
+    savesettings()
 end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.NPC_Enabled = State
+    savesettings()
 end)
 Sectors.NPC.Settings:Cheat("Slider", "Range", function(NewValue)
     savedsettings.NPC_Range = NewValue
+    savesettings()
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -291,156 +311,201 @@ end, {
 -- BloodHand ESP Settings
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.BloodHand_Boxes = State
+    savesettings()
 end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.BloodHand_Names = State
+    savesettings()
 end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.BloodHand_Distances = State
+    savesettings()
 end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.BloodHand_Tracers = State
+    savesettings()
 end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.BloodHand_Enabled = State
+    savesettings()
 end)
     
 -- Shop ESP Settings
 Sectors.Shop.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Shop_Boxes = State
+    savesettings()
 end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Shop_Names = State
+    savesettings()
 end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Shop_Distances = State
+    savesettings()
 end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Shop_Tracers = State
+    savesettings()
 end)
 -- Shop Info
 Sectors.Shop.Info:Cheat("Label", "Choose which shops you would like to be shown.")
 Sectors.Shop.Info:Cheat("Label", "This method of choice helps clean up your")
 Sectors.Shop.Info:Cheat("Label", "screen from the cluttering of too many")
 Sectors.Shop.Info:Cheat("Label", "overlapping ESP objects.")
+Sectors.Shop.Info:Cheat("Label", "The toggled states of shops don't save.)
     
 -- Crafting ESP Settings
 Sectors.Crafting.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Crafting_Boxes = State
+    savesettings()
 end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Crafting_Names = State
+    savesettings()
 end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Crafting_Distances = State
+    savesettings()
 end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Crafting_Tracers = State
+    savesettings()
 end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.Crafting_Enabled = State
+    savesettings()
 end)
     
 -- Anvil ESP Settings
 Sectors.Anvil.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Anvil_Boxes = State
+    savesettings()
 end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Anvil_Names = State
+    savesettings()
 end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Anvil_Distances = State
+    savesettings()
 end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Anvil_Tracers = State
+    savesettings()
 end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.Anvil_Enabled = State
+    savesettings()
 end)
     
 -- Infuser ESP Settings
 Sectors.Infuser.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Infuser_Boxes = State
+    savesettings()
 end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Infuser_Names = State
+    savesettings()
 end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Infuser_Distances = State
+    savesettings()
 end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Infuser_Tracers = State
+    savesettings()
 end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.Infuser_Enabled = State
+    savesettings()
 end)
     
 -- Transfer ESP Settings
 Sectors.Transfer.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Transfer_Boxes = State
+    savesettings()
 end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Transfer_Names = State
+    savesettings()
 end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Transfer_Distances = State
+    savesettings()
 end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Transfer_Tracers = State
+    savesettings()
 end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.Transfer_Enabled = State
+    savesettings()
 end)
     
 -- Dungeon ESP Settings
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Dungeon_Boxes = State
+    savesettings()
 end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Dungeon_Names = State
+    savesettings()
 end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Dungeon_Distances = State
+    savesettings()
 end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Dungeon_Tracers = State
+    savesettings()
 end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.Dungeon_Enabled = State
+    savesettings()
 end)
 
 -- VoidRift ESP Settings
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.VoidRift_Boxes = State
+    savesettings()
 end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.VoidRift_Names = State
+    savesettings()
 end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.VoidRift_Distances = State
+    savesettings()
 end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.VoidRift_Tracers = State
+    savesettings()
 end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.VoidRift_Enabled = State
+    savesettings()
 end)
     
 -- Shrine ESP Settings
 Sectors.Shrine.Settings:Cheat("Checkbox", "Boxes", function(State)
     savedsettings.Shrine_Boxes = State
+    savesettings()
 end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Names", function(State)
     savedsettings.Shrine_Names = State
+    savesettings()
 end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Distances", function(State)
     savedsettings.Shrine_Distances = State
+    savesettings()
 end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Tracers", function(State)
     savedsettings.Shrine_Tracers = State
+    savesettings()
 end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Enabled", function(State)
     savedsettings.Shrine_Enabled = State
+    savesettings()
 end)
 
 -- Script
