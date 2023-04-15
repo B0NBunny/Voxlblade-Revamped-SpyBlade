@@ -95,6 +95,7 @@ FinityWindow.ChangeToggleKey(KeybindCode or Enum.KeyCode.Period)
 
 local CreditsCategory = FinityWindow:Category("Credits");
 local CreditsSector = CreditsCategory:Sector("Credits");
+CreditsSector:Cheat("Label", "SpyBlade UI for VoxelBlade Remastered")
 CreditsSector:Cheat("Label", "Made by: CatOverEdge")
 
 -- Category
