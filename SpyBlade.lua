@@ -89,14 +89,9 @@ ESP.Enemy_Range = defaultRangeValue
 ESP.NPC_Range = defaultRangeValue
 
 -- UI Library
-local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Finity/main/Library"))() --https://pastebin.com/raw/nB2byebL
-local FinityWindow = Finity.new("SpyBlade", DarkMode, false, "", true, "")
---[[
-Args:
-Title (String), DarkMode (boolean), UseCustomTheme (boolean), CustomThemeName (String), HideToolTip (boolean), ToolTip (String)
-]]
-local UIKeyCode = UIKeybind
-FinityWindow:ChangeToggleKey(UIKeyCode)
+local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-Revamped-SpyBlade/main/detourious_Finity_Library.lua"))() --https://pastebin.com/raw/nB2byebL
+local FinityWindow = Finity.new(DarkMode)
+FinityWindow.ChangeToggleKey(UIKeybind)
 
 local CreditsCategory = FinityWindow:Category("Credits");
 local CreditsSector = CreditsCategory:Sector("Credits");
@@ -129,6 +124,7 @@ Sectors.BloodHand = {};
     Sectors.BloodHand.Settings = Categories.BloodHand:Sector("ESP Settings");
 Sectors.Shop = {};
     Sectors.Shop.Settings = Categories.Shop:Sector("ESP Settings");
+    Sectors.Shop.Info = Categories.Shop:Sector("Info");
     Sectors.Shop.Shops = Categories.Shop:Sector("Shops");
 Sectors.Crafting = {};
     Sectors.Crafting.Settings = Categories.Crafting:Sector("ESP Settings");
@@ -259,6 +255,9 @@ end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Shop_Tracers = State
 end)
+-- Shop Info
+Sectors.Shop.Info:Cheat("Label", "Choose which shops you would like to be shown.")
+Sectors.Shop.Info:Cheat("Label", "This method of choice helps clean up your screen from the cluttering of too many overlapping ESP objects.")
     
 -- Crafting ESP Settings
 Sectors.Crafting.Settings:Cheat("Checkbox", "Boxes", function(State)
