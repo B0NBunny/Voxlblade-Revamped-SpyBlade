@@ -48,7 +48,7 @@ if not isfolder then
 end
 
 defaultRangeValue = 250
-local savedsettings = {
+savedsettings = {
     Player_Enabled = false;
     Enemy_Enabled = false;
     NPC_Enabled = false;
