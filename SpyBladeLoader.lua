@@ -1,6 +1,5 @@
 -- Voxlblade2 ESP by CatOverEdge
-Keybind = "Period"
-KeybindCode = Enum.KeyCode.Period
+UIKeybind = "Period"
 DarkMode = true
 
 
