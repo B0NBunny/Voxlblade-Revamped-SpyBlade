@@ -90,13 +90,13 @@ ESP.NPC_Range = defaultRangeValue
 
 -- UI Library
 local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Finity/main/Library"))() --https://pastebin.com/raw/nB2byebL
-local FinityWindow = Finity.new("SpyBlade", DarkMode, false, "", false, "")
+local FinityWindow = Finity.new("SpyBlade", DarkMode, false, "", true, "")
 --[[
 Args:
 Title (String), DarkMode (boolean), UseCustomTheme (boolean), CustomThemeName (String), HideToolTip (boolean), ToolTip (String)
 ]]
-print(UIKeybind)
-FinityWindow:ChangeToggleKey(UIKeybind)
+local UIKeyCode = UIKeybind
+FinityWindow:ChangeToggleKey(UIKeyCode)
 
 local CreditsCategory = FinityWindow:Category("Credits");
 local CreditsSector = CreditsCategory:Sector("Credits");
