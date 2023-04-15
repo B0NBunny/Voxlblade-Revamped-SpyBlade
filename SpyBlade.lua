@@ -139,7 +139,7 @@ local DFAA = function()
     end
     if isfile('SpyBlade/settings.txt') then
         local contents = readfile('SpyBlade/settings.txt')
-        local decodedtable = httpservice:JSONDecode()
+        local decodedtable = httpservice:JSONDecode(contents)
         savedsettings = decodedtable
     else
         savesettings()
