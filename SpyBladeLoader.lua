@@ -1,7 +1,6 @@
 -- Voxlblade2 ESP by CatOverEdge
-UIKeybind = "Period"
+UIKeybind = Enum.KeyCode.Period.Name
 DarkMode = true
-
 
 ESP_Coloring = {
   Players = BrickColor.new("White").Color;
