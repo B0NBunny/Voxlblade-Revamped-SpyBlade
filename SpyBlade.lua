@@ -95,7 +95,7 @@ local FinityWindow = Finity.new("SpyBlade", DarkMode, false, "", false, "")
 Args:
 Title (String), DarkMode (boolean), UseCustomTheme (boolean), CustomThemeName (String), HideToolTip (boolean), ToolTip (String)
 ]]
-FinityWindow.ChangeToggleKey(KeybindCode or Enum.KeyCode.Period)
+FinityWindow.ChangeToggleKey(Keybind)
 
 local CreditsCategory = FinityWindow:Category("Credits");
 local CreditsSector = CreditsCategory:Sector("Credits");
