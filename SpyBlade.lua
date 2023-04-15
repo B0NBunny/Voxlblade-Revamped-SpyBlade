@@ -89,8 +89,13 @@ ESP.Enemy_Range = defaultRangeValue
 ESP.NPC_Range = defaultRangeValue
 
 -- UI Library
-local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-Revamped-SpyBlade/main/Finity_Lib.lua", true))() --https://pastebin.com/raw/nB2byebL
+local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/LocalSmail/Finity/main/Library"))() --https://pastebin.com/raw/nB2byebL
 local FinityWindow = Finity.new(DarkMode)
+--[[
+Args:
+Title (String), DarkMode (boolean), UseCustomTheme (boolean), CustomThemeName (String), HideToolTip (boolean), ToolTip (String)
+]]
+Finity.new("SpyBlade", DarkMode, false, "", false, "")
 FinityWindow.ChangeToggleKey(KeybindCode or Enum.KeyCode.Period)
 
 local CreditsCategory = FinityWindow:Category("Credits");
