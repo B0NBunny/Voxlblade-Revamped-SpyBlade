@@ -128,18 +128,18 @@ local savedsettings = {
     NPC_Range = defaultRangeValue;
 }
 local savesettings = function()
-    local contents = game.HttpService:JSONEncode(savedsettings)
+    local contents = httpservice:JSONEncode(savedsettings)
     if contents then
         writefile('SpyBlade/settings.txt', contents)
     end
 end
 local DFAA = function()
-    if not isfolder('SplyBlade') then
+    if not isfolder('SpyBlade') then
 	    makefolder('SpyBlade')
     end
     if isfile('SpyBlade/settings.txt') then
         local contents = readfile('SpyBlade/settings.txt')
-        local decodedtable = game.HttpService:JSONDecode()
+        local decodedtable = httpservice:JSONDecode()
         savedsettings = decodedtable
     else
         savesettings()
