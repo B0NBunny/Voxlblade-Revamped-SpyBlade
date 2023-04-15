@@ -483,9 +483,6 @@ task.spawn(function()
         if interactables_folder then
             -- Get Interactables
             local interactables_children = interactables_folder:GetDescendants()
-            table.sort(interactables_children, function(a,b)
-                return a.Name < b.Name
-            end)
             for i, prompt in ipairs(interactables_children) do
                 if prompt.ClassName == "ProximityPrompt" then
                     local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
