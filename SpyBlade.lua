@@ -96,7 +96,7 @@ Args:
 Title (String), DarkMode (boolean), UseCustomTheme (boolean), CustomThemeName (String), HideToolTip (boolean), ToolTip (String)
 ]]
 print(UIKeybind)
-FinityWindow.ChangeToggleKey(UIKeybind)
+FinityWindow:ChangeToggleKey(UIKeybind)
 
 local CreditsCategory = FinityWindow:Category("Credits");
 local CreditsSector = CreditsCategory:Sector("Credits");
