@@ -1,5 +1,6 @@
 -- Voxlblade2 ESP by CatOverEdge
-UIKeybind = Enum.KeyCode.Period.Name
+Keybind = "Period"
+KeybindCode = Enum.KeyCode.Period
 DarkMode = true
 
 ESP_Coloring = {
@@ -27,18 +28,5 @@ ESP_Coloring = {
 
   Shrines = BrickColor.new("Medium Royal blue").Color;
 }
-
--- ProximityPrompt Names ("Types")
--- DON'T TOUCH
-Dialog_PromptName = "Dialog" --Ancestor: workspace.Interactables
-BloodHand_PromptName = "BloodHand" --Ancestor: workspace.Interactables
-Shop_PromptName = "Shop" --Ancestor: workspace.Interactables
-Crafting_PromptName = "Crafting" --Ancestor: workspace.Interactables
-Anvil_PromptName = "Anvil" --Ancestor: workspace.Interactables
-Infuser_PromptName = "Infuser" --Ancestor: workspace.Infusers
-Transfer_PromptName = "Transfer" --Ancestor: workspace.Interactables
-Dungeon_PromptName = "Dungeon" --Ancestor: workspace.Others
-VoidRift_PromptName = "VoidRift" --Ancestor: workspace.Interactables
-Shrine_PromptName = "Shrine" --Ancestor: workspace.Shrines
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-Revamped-SpyBlade/main/SpyBlade.lua", true))()
