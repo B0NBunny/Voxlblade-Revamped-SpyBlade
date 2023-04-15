@@ -5,6 +5,48 @@ ESP:Toggle(true)
 -- Variables
 local plrs = game:GetService("Players")
 local plr = plrs.LocalPlayer
+local getasset = getsynasset or getcustomasset or function(id) return "rbxasset://"..id end
+local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or request or function(data)
+	if data.Method == "GET" then
+		return {
+			Body = game:HttpGet(data.Url, true),
+			Headers = {},
+			StatusCode = 200
+		}
+	else
+		return {
+			Body = "Unable to access resource.",
+			Headers = {},
+			StatusCode = 404
+		}
+	end
+
+	if data.Method == "POST" then
+		return {
+			Body = game:HttpPost(data.Url, true),
+			Headers = {},
+			StatusCode = 200
+		}
+	else
+		return {
+			Body = "Unable to post data to resource",
+			Headers = {},
+			StatusCode = 404
+		}
+	end
+end
+if not writefile then
+	print("Your executor does not support the writefile() function. We do not support your injector.")
+end
+local DFAA = function()
+	makefolder('SpyBlade')
+	makefolder('SpyBlade/settings')
+end
+if not isfolder('SpyBlade') then
+	print('Creating folders')
+	DFAA()
+end
+
 
 -- Enabled Booleans
 ESP.Player_Enabled = false
