@@ -89,7 +89,7 @@ ESP.Enemy_Range = defaultRangeValue
 ESP.NPC_Range = defaultRangeValue
 
 -- UI Library
-local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/LocalSmail/Finity/main/Library"))() --https://pastebin.com/raw/nB2byebL
+local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Finity/main/Library"))() --https://pastebin.com/raw/nB2byebL
 local FinityWindow = Finity.new("SpyBlade", DarkMode, false, "", false, "")
 --[[
 Args:
