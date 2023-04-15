@@ -47,8 +47,21 @@ if not isfolder then
     print("Your executor does not support the isfolder() function. We do not support your injector.")
 end
 
-defaultRangeValue = 250
-savedsettings = {
+-- ProximityPrompt Names ("Types")
+-- DON'T TOUCH
+_G.Dialog_PromptName = "Dialog" --Ancestor: workspace.Interactables
+_G.BloodHand_PromptName = "BloodHand" --Ancestor: workspace.Interactables
+_G.Shop_PromptName = "Shop" --Ancestor: workspace.Interactables
+_G.Crafting_PromptName = "Crafting" --Ancestor: workspace.Interactables
+_G.Anvil_PromptName = "Anvil" --Ancestor: workspace.Interactables
+_G.Infuser_PromptName = "Infuser" --Ancestor: workspace.Infusers
+_G.Transfer_PromptName = "Transfer" --Ancestor: workspace.Interactables
+_G.Dungeon_PromptName = "Dungeon" --Ancestor: workspace.Others
+_G.VoidRift_PromptName = "VoidRift" --Ancestor: workspace.Interactables
+_G.Shrine_PromptName = "Shrine" --Ancestor: workspace.Shrines
+
+_G.defaultRangeValue = 250
+_G.savedsettings = {
     Player_Enabled = false;
     Enemy_Enabled = false;
     NPC_Enabled = false;
@@ -618,7 +631,7 @@ task.spawn(function()
             for i, prompt in ipairs(interactables_children) do
                 if prompt.ClassName == "ProximityPrompt" then
                     local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-                    if model and prompt.Name == (Dialog_PromptName) and not model:FindFirstChild("EGG") then
+                    if model and prompt.Name == (_G.Dialog_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
                         if savedsettings.NPC_Enabled then
                             ESP:Add(model,{
@@ -633,7 +646,7 @@ task.spawn(function()
                             })
                             Instance.new("Part",model).Name = "EGG"
                         end
-                    elseif model and prompt.Name == (BloodHand_PromptName) and not model:FindFirstChild("EGG") then
+                    elseif model and prompt.Name == (_G.BloodHand_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
                         if savedsettings.BloodHand_Enabled then
                             ESP:Add(model,{
@@ -647,7 +660,7 @@ task.spawn(function()
                             })
                             Instance.new("Part",model).Name = "EGG"
                         end
-                    elseif model and prompt.Name == (Shop_PromptName) and not model:FindFirstChild("EGG") then
+                    elseif model and prompt.Name == (_G.Shop_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
                         ESP:Add(model,{
                             Name = model.Name,
@@ -663,7 +676,7 @@ task.spawn(function()
                             ESP[model.Name] = State
                         end)
                         Instance.new("Part",model).Name = "EGG"
-                    elseif model and prompt.Name == (Crafting_PromptName) and not model:FindFirstChild("EGG") then
+                    elseif model and prompt.Name == (_G.Crafting_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
                         if savedsettings.Crafting_Enabled then
                             ESP:Add(model,{
@@ -677,7 +690,7 @@ task.spawn(function()
                             })
                             Instance.new("Part",model).Name = "EGG"
                         end
-                    elseif model and prompt.Name == (Anvil_PromptName) and not model:FindFirstChild("EGG") then
+                    elseif model and prompt.Name == (_G.Anvil_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
                         if savedsettings.Anvil_Enabled then
                             ESP:Add(model,{
@@ -691,7 +704,7 @@ task.spawn(function()
                             })
                             Instance.new("Part",model).Name = "EGG"
                         end
-                    elseif model and prompt.Name == (Transfer_PromptName) and not model:FindFirstChild("EGG") then
+                    elseif model and prompt.Name == (_G.Transfer_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
                         if savedsettings.Transfer_Enabled then
                             ESP:Add(model,{
@@ -705,7 +718,7 @@ task.spawn(function()
                             })
                             Instance.new("Part",model).Name = "EGG"
                         end
-                    elseif model and prompt.Name == (VoidRift_PromptName) and not model:FindFirstChild("EGG") then
+                    elseif model and prompt.Name == (_G.VoidRift_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
                         if savedsettings.VoidRift_Enabled then
                             ESP:Add(model,{
@@ -731,7 +744,7 @@ task.spawn(function()
                 for i, prompt in ipairs(shrines_children) do
                     if prompt.ClassName == "ProximityPrompt" then
                         local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-                        if model and prompt.Name == (Shrine_PromptName) and not model:FindFirstChild("EGG") then
+                        if model and prompt.Name == (_G.Shrine_PromptName) and not model:FindFirstChild("EGG") then
                             -- Add ESP
                             if savedsettings.Shrine_Enabled then
                                 ESP:Add(model,{
@@ -758,7 +771,7 @@ task.spawn(function()
                 for i, prompt in ipairs(infusers_children) do
                     if prompt.ClassName == "ProximityPrompt" then
                         local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-                        if model and prompt.Name == (Infuser_PromptName) and not model:FindFirstChild("EGG") then
+                        if model and prompt.Name == (_G.Infuser_PromptName) and not model:FindFirstChild("EGG") then
                             -- Add ESP
                             if savedsettings.Infuser_Enabled then
                                 ESP:Add(model,{
@@ -785,7 +798,7 @@ task.spawn(function()
                 for i, prompt in ipairs(others_children) do
                     if prompt.ClassName == "ProximityPrompt" then
                         local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-                        if model and prompt.Name == (Dungeon_PromptName) and not model:FindFirstChild("EGG") then
+                        if model and prompt.Name == (_G.Dungeon_PromptName) and not model:FindFirstChild("EGG") then
                             -- Add ESP
                             if savedsettings.Dungeon_Enabled then
                                 ESP:Add(model,{
