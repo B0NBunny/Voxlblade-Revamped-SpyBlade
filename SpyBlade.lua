@@ -91,7 +91,7 @@ ESP.NPC_Range = defaultRangeValue
 -- UI Library
 local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-Revamped-SpyBlade/main/detourious_Finity_Library.lua"))() --https://pastebin.com/raw/nB2byebL
 local FinityWindow = Finity.new(DarkMode)
-FinityWindow.ChangeToggleKey(UIKeybind)
+FinityWindow.ChangeToggleKey(KeybindCode or Enum.KeyCode.Period)
 
 local CreditsCategory = FinityWindow:Category("Credits");
 local CreditsSector = CreditsCategory:Sector("Credits");
