@@ -11,7 +11,6 @@ ESP.Player_Enabled = false
 ESP.Enemy_Enabled = false
 ESP.NPC_Enabled = false
 ESP.BloodHand_Enabled = false
-ESP.Shop_Enabled = false
 ESP.Crafting_Enabled = false
 ESP.Anvil_Enabled = false
 ESP.Infuser_Enabled = false
@@ -255,9 +254,6 @@ end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Tracers", function(State)
     ESP.Shop_Tracers = State
 end)
-Sectors.Shop.Settings:Cheat("Checkbox", "Enabled", function(State)
-    ESP.Shop_Enabled = State
-end)
     
 -- Crafting ESP Settings
 Sectors.Crafting.Settings:Cheat("Checkbox", "Boxes", function(State)
@@ -483,6 +479,9 @@ task.spawn(function()
         if interactables_folder then
             -- Get Interactables
             local interactables_children = interactables_folder:GetDescendants()
+            table.sort(interactables_children, function(a,b)
+                return a.Name < b.Name
+            end)
             for i, prompt in ipairs(interactables_children) do
                 if prompt.ClassName == "ProximityPrompt" then
                     local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
@@ -517,22 +516,20 @@ task.spawn(function()
                         end
                     elseif model and prompt.Name == (Shop_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
-                        if ESP.Shop_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.Shops,
-                                IsEnabled = model.Name;
-                                IsBoxEnabled = "Shop_Boxes";
-                                IsNameEnabled = "Shop_Names";
-                                IsDistanceEnabled = "Shop_Distances";
-                                IsTracerEnabled = "Shop_Tracers";
-                            })
-                            ESP[model.Name] = false
-                            Sectors.Shop.Shops:Cheat("Checkbox", model.Name, function(State)
-                                ESP[model.Name] = State
-                            end)
-                            Instance.new("Part",model).Name = "EGG"
-                        end
+                        ESP:Add(model,{
+                            Name = model.Name,
+                            Color = ESP_Coloring.Shops,
+                            IsEnabled = model.Name;
+                            IsBoxEnabled = "Shop_Boxes";
+                            IsNameEnabled = "Shop_Names";
+                            IsDistanceEnabled = "Shop_Distances";
+                            IsTracerEnabled = "Shop_Tracers";
+                        })
+                        ESP[model.Name] = false
+                        Sectors.Shop.Shops:Cheat("Checkbox", model.Name, function(State)
+                            ESP[model.Name] = State
+                        end)
+                        Instance.new("Part",model).Name = "EGG"
                     elseif model and prompt.Name == (Crafting_PromptName) and not model:FindFirstChild("EGG") then
                         -- Add ESP
                         if ESP.Crafting_Enabled then
