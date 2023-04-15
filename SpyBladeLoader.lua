@@ -43,4 +43,4 @@ Dungeon_PromptName = "Dungeon" --Ancestor: workspace.Others
 VoidRift_PromptName = "VoidRift" --Ancestor: workspace.Interactables
 Shrine_PromptName = "Shrine" --Ancestor: workspace.Shrines
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/SpyBlade.lua", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-Revamped-SpyBlade/main/SpyBlade.lua", true))()
