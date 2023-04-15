@@ -164,7 +164,7 @@ function boxBase:Update()
     if self.Player and not ESP.Players then
         allow = false
     end
-    if self.IsEnabled and (type(self.IsEnabled) == "string" and not savedsettings[self.IsEnabled] or type(self.IsEnabled) == "function" and not self:IsEnabled()) then
+    if self.IsEnabled and (type(self.IsEnabled) == "string" and not savedsettings[self.IsEnabled] or not ESP[self.IsEnabled] or type(self.IsEnabled) == "function" and not self:IsEnabled()) then
         allow = false
     end
     if not workspace:IsAncestorOf(self.PrimaryPart) and not self.RenderInNil then
