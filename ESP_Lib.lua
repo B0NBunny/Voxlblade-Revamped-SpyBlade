@@ -166,7 +166,7 @@ function boxBase:Update()
     end
     if self.IsEnabled and 
         (type(self.IsEnabled) == "string" and
-        not savedsettings[self.IsEnabled] and
+        not _G.savedsettings[self.IsEnabled] and
         not ESP[self.IsEnabled] or 
         type(self.IsEnabled) == "function" and
         not self:IsEnabled())
@@ -187,9 +187,9 @@ function boxBase:Update()
         cf = CFrame.new(cf.p, cam.CFrame.p)
     end
     
-    if savedsettings[self.RangeValue] then
+    if _G.savedsettings[self.RangeValue] then
         local currentdistance = (cam.CFrame.p - cf.p).magnitude
-        if savedsettings[self.RangeValue] < currentdistance then
+        if _G.savedsettings[self.RangeValue] < currentdistance then
             allow = false
         end
     end
@@ -211,7 +211,7 @@ function boxBase:Update()
         Torso = cf * ESP.BoxShift
     }
 
-    if savedsettings[self.IsBoxEnabled] then --Boxes
+    if _G.savedsettings[self.IsBoxEnabled] then --Boxes
         local TopLeft, Vis1 = WorldToViewportPoint(cam, locs.TopLeft.p)
         local TopRight, Vis2 = WorldToViewportPoint(cam, locs.TopRight.p)
         local BottomLeft, Vis3 = WorldToViewportPoint(cam, locs.BottomLeft.p)
@@ -235,7 +235,7 @@ function boxBase:Update()
 
     local amounttags = 0
     
-    if savedsettings[self.IsNameEnabled] then --Names
+    if _G.savedsettings[self.IsNameEnabled] then --Names
         local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
         
         if Vis5 then
@@ -250,7 +250,7 @@ function boxBase:Update()
         self.Components.Name.Visible = false
     end
     
-    if savedsettings[self.IsHealthEnabled] then --Health
+    if _G.savedsettings[self.IsHealthEnabled] then --Health
         local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
         
         if Vis5 then
@@ -281,7 +281,7 @@ function boxBase:Update()
         self.Components.Health.Visible = false
     end
     
-    if savedsettings[self.IsDistanceEnabled] then --Distance
+    if _G.savedsettings[self.IsDistanceEnabled] then --Distance
         local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
         
         if Vis5 then
@@ -297,7 +297,7 @@ function boxBase:Update()
         self.Components.Distance.Visible = false
     end
     
-    if savedsettings[self.IsTracerEnabled] then --Tracers
+    if _G.savedsettings[self.IsTracerEnabled] then --Tracers
         local TorsoPos, Vis6 = WorldToViewportPoint(cam, locs.Torso.p)
 
         if Vis6 then
