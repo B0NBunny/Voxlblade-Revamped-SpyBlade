@@ -1,5 +1,5 @@
 -- ESP Function
-local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/ESP_Lib.lua", true))() --https://kiriot22.com/releases/ESP.lua
+local ESP = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-Revamped-SpyBlade/main/ESP_Lib.lua", true))() --https://kiriot22.com/releases/ESP.lua
 ESP:Toggle(true)
 
 -- Variables
@@ -90,7 +90,7 @@ ESP.Enemy_Range = defaultRangeValue
 ESP.NPC_Range = defaultRangeValue
 
 -- UI Library
-local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-2-Scripts/main/Finity_Lib.lua", true))() --https://pastebin.com/raw/nB2byebL
+local Finity = loadstring(game:HttpGet("https://raw.githubusercontent.com/B0NBunny/Voxlblade-Revamped-SpyBlade/main/Finity_Lib.lua", true))() --https://pastebin.com/raw/nB2byebL
 local FinityWindow = Finity.new(DarkMode)
 FinityWindow.ChangeToggleKey(KeybindCode or Enum.KeyCode.Period)
 
