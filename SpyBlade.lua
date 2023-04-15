@@ -352,7 +352,7 @@ Sectors.Shop.Info:Cheat("Label", "Choose which shops you would like to be shown.
 Sectors.Shop.Info:Cheat("Label", "This method of choice helps clean up your")
 Sectors.Shop.Info:Cheat("Label", "screen from the cluttering of too many")
 Sectors.Shop.Info:Cheat("Label", "overlapping ESP objects.")
-Sectors.Shop.Info:Cheat("Label", "The toggled states of shops don't save.)
+Sectors.Shop.Info:Cheat("Label", "The toggled states of shops don't save.")
     
 -- Crafting ESP Settings
 Sectors.Crafting.Settings:Cheat("Checkbox", "Boxes", function(State)
