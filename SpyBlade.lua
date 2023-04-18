@@ -790,6 +790,9 @@ local function doespEnemy(v)
     end
 end
 local Added_npcs = npcs_folder.ChildAdded:Connect(doespEnemy)
+for _, v in pairs(npcs_folder:GetChildren()) do
+   doespEnemy(v) 
+end
 
 while wait(5) do
     if tosave == true then
