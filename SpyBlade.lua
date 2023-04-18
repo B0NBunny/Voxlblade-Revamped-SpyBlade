@@ -623,7 +623,7 @@ task.spawn(function()
             if npcs_folder then
                 -- Get Enemies
                 local npcs_children = npcs_folder:GetChildren()
-                for v in next, npcs_children do
+                for i, v in ipairs(npcs_children) do
                     local model = v:FindFirstChildOfClass("Model")
                     if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
                         -- Add ESP
