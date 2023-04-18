@@ -603,7 +603,7 @@ local function PromptRemoving(prompt)
 end
 local Added = workspace.DescendantAdded:Connect(PromptAdded)
 local Removed = workspace.DescendantRemoving:Connect(PromptRemoving)
-for i, prompt in ipairs(workspace:GetDescendants()) do
+for i, prompt in pairs(workspace:GetDescendants()) do
     if prompt:IsA("ProximityPrompt") then
         if not table.find(proximityprompts, prompt) then
             table.insert(proximityprompts, prompt)
@@ -623,7 +623,7 @@ task.spawn(function()
             if npcs_folder then
                 -- Get Enemies
                 local npcs_children = npcs_folder:GetChildren()
-                for i, v in ipairs(npcs_children) do
+                for i, v in pairs(npcs_children) do
                     local model = v:FindFirstChildOfClass("Model")
                     if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
                         -- Add ESP
@@ -651,7 +651,7 @@ task.spawn(function()
                 wait()
             end
         end
-        for i, prompt in ipairs(proximityprompts) do
+        for i, prompt in pairs(proximityprompts) do
             if prompt:IsA("ProximityPrompt") then
                 if interactables_folder and prompt:IsDescendantOf(interactables_folder) then
                     -- Get Interactables
