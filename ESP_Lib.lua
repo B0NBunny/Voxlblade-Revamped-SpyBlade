@@ -410,12 +410,15 @@ function ESP:Add(obj, options)
     return box
 end
 
-game:GetService("RunService").RenderStepped:Connect(function()
+game:GetService("RunService").Heartbeat:Connect(function()
     cam = workspace.CurrentCamera
     for i,v in (ESP.Enabled and pairs or ipairs)(ESP.Objects) do
         if v.Update then
-            local s,e = pcall(v.Update, v)
-            if not s then warn("[EU]", e, v.Object:GetFullName()) end
+			local s,e = pcall(v.Update, v)
+            if not s then
+                local errorstring = '[Error] '..e..' '..v.Object:GetFullName()
+                printconsole(errorstring, 255,255,0)
+            end
         end
     end
 end)
