@@ -601,8 +601,6 @@ local function PromptRemoving(prompt)
         end
     end
 end
-local Added = workspace.DescendantAdded:Connect(PromptAdded)
-local Removed = workspace.DescendantRemoving:Connect(PromptRemoving)
 for i,prompt in pairs(workspace:GetDescendants()) do
     if prompt:IsA("ProximityPrompt") then
         if not table.find(proximityprompts, prompt) then
@@ -610,14 +608,26 @@ for i,prompt in pairs(workspace:GetDescendants()) do
         end
     end
 end
+local npcs_folder = workspace:FindFirstChild("NPCS")
+local interactables_folder = workspace:FindFirstChild("Interactables")
+local shrines_folder = workspace:FindFirstChild("Shrines")
+local infusers_folder = workspace:FindFirstChild("Infusers")
+local others_folder = workspace:FindFirstChild("Others")
+
+local Added_npcs = npcs_folder.DescendantAdded:Connect(PromptAdded)
+local Removed_npcs = npcs_folder.DescendantRemoving:Connect(PromptRemoving)
+local Added_interactables = interactables_folder.DescendantAdded:Connect(PromptAdded)
+local Removed_interactables = interactables_folder.DescendantRemoving:Connect(PromptRemoving)
+local Added_shrines = shrines_folder.DescendantAdded:Connect(PromptAdded)
+local Removed_shrines = shrines_folder.DescendantRemoving:Connect(PromptRemoving)
+local Added_infusers = infusers_folder.DescendantAdded:Connect(PromptAdded)
+local Removed_infusers = infusers_folder.DescendantRemoving:Connect(PromptRemoving)
+local Added_others = others_folder.DescendantAdded:Connect(PromptAdded)
+local Removed_others = others_folder.DescendantRemoving:Connect(PromptRemoving)
 
 task.spawn(function()
     while true do
-        local npcs_folder = workspace:FindFirstChild("NPCS")
-        local interactables_folder = workspace:FindFirstChild("Interactables")
-        local shrines_folder = workspace:FindFirstChild("Shrines")
-        local infusers_folder = workspace:FindFirstChild("Infusers")
-        local others_folder = workspace:FindFirstChild("Others")
+        
 	
         if _G.savedsettings.Enemy_Enabled then
             if npcs_folder then
