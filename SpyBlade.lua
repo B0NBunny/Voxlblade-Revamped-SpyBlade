@@ -614,8 +614,6 @@ local shrines_folder = workspace:FindFirstChild("Shrines")
 local infusers_folder = workspace:FindFirstChild("Infusers")
 local others_folder = workspace:FindFirstChild("Others")
 
-local Added_npcs = npcs_folder.DescendantAdded:Connect(PromptAdded)
-local Removed_npcs = npcs_folder.DescendantRemoving:Connect(PromptRemoving)
 local Added_interactables = interactables_folder.DescendantAdded:Connect(PromptAdded)
 local Removed_interactables = interactables_folder.DescendantRemoving:Connect(PromptRemoving)
 local Added_shrines = shrines_folder.DescendantAdded:Connect(PromptAdded)
@@ -627,8 +625,6 @@ local Removed_others = others_folder.DescendantRemoving:Connect(PromptRemoving)
 
 task.spawn(function()
     while true do
-        
-	
         if _G.savedsettings.Enemy_Enabled then
             if npcs_folder then
                 -- Get Enemies
