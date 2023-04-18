@@ -803,6 +803,11 @@ end
 for _, object in ipairs(others_folder:GetDescendants()) do
 	DescendantAdded(object)
 end
+if rconsoleprint then
+	rconsoleprint('@@RED@@')
+	rconsoleprint('GetDescendants functions completed')
+end
+
 
 while wait(5) do
     if tosave == true then
