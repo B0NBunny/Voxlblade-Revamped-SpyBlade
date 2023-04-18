@@ -771,9 +771,9 @@ local function DescendantAdded(prompt)
 	end
 end
 local function DescendantRemoving(prompt)
-	local i = table.find(WorkspaceDescendants, prompt)
+	local i = table.find(scannedprompts, prompt)
 	if i then
-		table.remove(WorkspaceDescendants, i)
+		table.remove(scannedprompts, i)
 	end
 end
 
