@@ -761,7 +761,7 @@ end
 local function doespEnemy(v)
     local model = v:FindFirstChildOfClass("Model")
     if model then
-		if not model:FindFirstChild("EGG") then
+	if not model:FindFirstChild("EGG") then
             if npcs_folder and model:IsDescendantOf(npcs_folder) then
                 if model:FindFirstChild("HumanoidRootPart") then 
                     -- Add ESP
@@ -786,7 +786,7 @@ local function doespEnemy(v)
                     end
                 end
             end
-		end
+	end
     end
 end
 local Added_npcs = npcs_folder.ChildAdded:Connect(doespEnemy)
