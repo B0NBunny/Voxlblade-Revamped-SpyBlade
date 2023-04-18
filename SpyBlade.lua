@@ -623,194 +623,192 @@ local Removed_infusers = infusers_folder.DescendantRemoving:Connect(PromptRemovi
 local Added_others = others_folder.DescendantAdded:Connect(PromptAdded)
 local Removed_others = others_folder.DescendantRemoving:Connect(PromptRemoving)
 
-task.spawn(function()
-    while true do
-        if _G.savedsettings.Enemy_Enabled then
-            if npcs_folder then
-                -- Get Enemies
-                local npcs_children = npcs_folder:GetChildren()
-                for i,v in pairs(npcs_children) do
-                    local model = v:FindFirstChildOfClass("Model")
-                    if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
-                        -- Add ESP
-                        if _G.savedsettings.Enemy_Enabled then
-                            ESP:Add(model.HumanoidRootPart,{
-                                Name = v.Name;
-                                PrimaryPart = model.HumanoidRootPart;
-                                Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
-                                IsEnabled = "Enemy_Enabled";
-                                IsBoxEnabled = "Enemy_Boxes";
-                                IsNameEnabled = "Enemy_Names";
-                                IsDistanceEnabled = "Enemy_Distances";
-                                IsTracerEnabled = "Enemy_Tracers";
-                                IsHealthEnabled = "Enemy_Healths";
-                                RangeValue = "Enemy_Range";
-                                HealthAttributePart = v;
-                                HealthAttributeName = "HP";
-                                MaxHealthAttributePart = v;
-                                MaxHealthAttributeName = "MAXHP";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
+while true do
+	if _G.savedsettings.Enemy_Enabled then
+	    if npcs_folder then
+            -- Get Enemies
+            local npcs_children = npcs_folder:GetChildren()
+            for i,v in pairs(npcs_children) do
+                local model = v:FindFirstChildOfClass("Model")
+                if model and model:FindFirstChild("HumanoidRootPart") and not model:FindFirstChild("EGG") then
+                    -- Add ESP
+                    if _G.savedsettings.Enemy_Enabled then
+                        ESP:Add(model.HumanoidRootPart,{
+                        Name = v.Name;
+                        PrimaryPart = model.HumanoidRootPart;
+                        Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
+                        IsEnabled = "Enemy_Enabled";
+                        IsBoxEnabled = "Enemy_Boxes";
+                        IsNameEnabled = "Enemy_Names";
+                        IsDistanceEnabled = "Enemy_Distances";
+                        IsTracerEnabled = "Enemy_Tracers";
+                        IsHealthEnabled = "Enemy_Healths";
+                        RangeValue = "Enemy_Range";
+                        HealthAttributePart = v;
+                        HealthAttributeName = "HP";
+                        MaxHealthAttributePart = v;
+                        MaxHealthAttributeName = "MAXHP";
+                        })
+                        Instance.new("Part",model).Name = "EGG"
                     end
                 end
-                wait()
             end
-        end
-        for i,prompt in pairs(proximityprompts) do
-            if prompt:IsA("ProximityPrompt") then
-                if interactables_folder and prompt:IsDescendantOf(interactables_folder) then
-                    -- Get Interactables
-                    local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-                    if model and prompt.Name == (_G.Dialog_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.NPC_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.NPCs,
-                                IsEnabled = "NPC_Enabled";
-                                IsBoxEnabled = "NPC_Boxes";
-                                IsNameEnabled = "NPC_Names";
-                                IsDistanceEnabled = "NPC_Distances";
-                                IsTracerEnabled = "NPC_Tracers";
-                                RangeValue = "NPC_Range";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
-                    elseif model and prompt.Name == (_G.BloodHand_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.BloodHand_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.BloodHands,
-                                IsEnabled = "BloodHand_Enabled";
-                                IsBoxEnabled = "BloodHand_Boxes";
-                                IsNameEnabled = "BloodHand_Names";
-                                IsDistanceEnabled = "BloodHand_Distances";
-                                IsTracerEnabled = "BloodHand_Tracers";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
-                    elseif model and prompt.Name == (_G.Shop_PromptName) and not model:FindFirstChild("EGG") then
+            wait()
+	    end
+	end
+	for i,prompt in pairs(proximityprompts) do
+	    if prompt:IsA("ProximityPrompt") then
+            if interactables_folder and prompt:IsDescendantOf(interactables_folder) then
+                -- Get Interactables
+                local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
+                if model and prompt.Name == (_G.Dialog_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.NPC_Enabled then
+                        ESP:Add(model,{
+                        Name = model.Name,
+                        Color = ESP_Coloring.NPCs,
+                        IsEnabled = "NPC_Enabled";
+                        IsBoxEnabled = "NPC_Boxes";
+                        IsNameEnabled = "NPC_Names";
+                        IsDistanceEnabled = "NPC_Distances";
+                        IsTracerEnabled = "NPC_Tracers";
+                        RangeValue = "NPC_Range";
+                        })
+                        Instance.new("Part",model).Name = "EGG"
+                    end
+                elseif model and prompt.Name == (_G.BloodHand_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.BloodHand_Enabled then
+                        ESP:Add(model,{
+                        Name = model.Name,
+                        Color = ESP_Coloring.BloodHands,
+                        IsEnabled = "BloodHand_Enabled";
+                        IsBoxEnabled = "BloodHand_Boxes";
+                        IsNameEnabled = "BloodHand_Names";
+                        IsDistanceEnabled = "BloodHand_Distances";
+                        IsTracerEnabled = "BloodHand_Tracers";
+                        })
+                        Instance.new("Part",model).Name = "EGG"
+                    end
+                elseif model and prompt.Name == (_G.Shop_PromptName) and not model:FindFirstChild("EGG") then
+                    ESP:Add(model,{
+                        Name = model.Name,
+                        Color = ESP_Coloring.Shops,
+                        IsEnabled = model.Name;
+                        IsBoxEnabled = "Shop_Boxes";
+                        IsNameEnabled = "Shop_Names";
+                        IsDistanceEnabled = "Shop_Distances";
+                        IsTracerEnabled = "Shop_Tracers";
+                    })
+                    ESP[model.Name] = false
+                    Sectors.Shop.Shops:Cheat("Checkbox", model.Name, function(State)
+                        ESP[model.Name] = State
+                    end)
+                    Instance.new("Part",model).Name = "EGG"
+                elseif model and prompt.Name == (_G.Crafting_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.Crafting_Enabled then
                         ESP:Add(model,{
                             Name = model.Name,
-                            Color = ESP_Coloring.Shops,
-                            IsEnabled = model.Name;
-                            IsBoxEnabled = "Shop_Boxes";
-                            IsNameEnabled = "Shop_Names";
-                            IsDistanceEnabled = "Shop_Distances";
-                            IsTracerEnabled = "Shop_Tracers";
+                            Color = ESP_Coloring.Craftings,
+                            IsEnabled = "Crafting_Enabled";
+                            IsBoxEnabled = "Crafting_Boxes";
+                            IsNameEnabled = "Crafting_Names";
+                            IsDistanceEnabled = "Crafting_Distances";
+                            IsTracerEnabled = "Crafting_Tracers";
                         })
-                        ESP[model.Name] = false
-                        Sectors.Shop.Shops:Cheat("Checkbox", model.Name, function(State)
-                            ESP[model.Name] = State
-                        end)
                         Instance.new("Part",model).Name = "EGG"
-                    elseif model and prompt.Name == (_G.Crafting_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.Crafting_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.Craftings,
-                                IsEnabled = "Crafting_Enabled";
-                                IsBoxEnabled = "Crafting_Boxes";
-                                IsNameEnabled = "Crafting_Names";
-                                IsDistanceEnabled = "Crafting_Distances";
-                                IsTracerEnabled = "Crafting_Tracers";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
-                    elseif model and prompt.Name == (_G.Anvil_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.Anvil_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.Anvils,
-                                IsEnabled = "Anvil_Enabled";
-                                IsBoxEnabled = "Anvil_Boxes";
-                                IsNameEnabled = "Anvil_Names";
-                                IsDistanceEnabled = "Anvil_Distances";
-                                IsTracerEnabled = "Anvil_Tracers";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
-                    elseif model and prompt.Name == (_G.Transfer_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.Transfer_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.Transfers,
-                                IsEnabled = "Transfer_Enabled";
-                                IsBoxEnabled = "Transfer_Boxes";
-                                IsNameEnabled = "Transfer_Names";
-                                IsDistanceEnabled = "Transfer_Distances";
-                                IsTracerEnabled = "Transfer_Tracers";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
-                    elseif model and prompt.Name == (_G.VoidRift_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.VoidRift_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.VoidRifts,
-                                IsEnabled = "VoidRift_Enabled";
-                                IsBoxEnabled = "VoidRift_Boxes";
-                                IsNameEnabled = "VoidRift_Names";
-                                IsDistanceEnabled = "VoidRift_Distances";
-                                IsTracerEnabled = "VoidRift_Tracers";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
                     end
-                elseif shrines_folder and prompt:IsDescendantOf(shrines_folder) then
-                    -- Get Shrines
-                    local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-                    if model and prompt.Name == (_G.Shrine_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.Shrine_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.Shrines,
-                                IsEnabled = "Shrine_Enabled";
-                                IsBoxEnabled = "Shrine_Boxes";
-                                IsNameEnabled = "Shrine_Names";
-                                IsDistanceEnabled = "Shrine_Distances";
-                                IsTracerEnabled = "Shrine_Tracers";
+                elseif model and prompt.Name == (_G.Anvil_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.Anvil_Enabled then
+                        ESP:Add(model,{
+                            Name = model.Name,
+                            Color = ESP_Coloring.Anvils,
+                            IsEnabled = "Anvil_Enabled";
+                            IsBoxEnabled = "Anvil_Boxes";
+                            IsNameEnabled = "Anvil_Names";
+                            IsDistanceEnabled = "Anvil_Distances";
+                            IsTracerEnabled = "Anvil_Tracers";
                             })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
+                        Instance.new("Part",model).Name = "EGG"
                     end
-                elseif infusers_folder and prompt:IsDescendantOf(infusers_folder) then
-                    -- Get Infusers
-                    local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-                    if model and prompt.Name == (_G.Infuser_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.Infuser_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.Infusers,
-                                IsEnabled = "Infuser_Enabled";
-                                IsBoxEnabled = "Infuser_Boxes";
-                                IsNameEnabled = "Infuser_Names";
-                                IsDistanceEnabled = "Infuser_Distances";
-                                IsTracerEnabled = "Infuser_Tracers";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
+                elseif model and prompt.Name == (_G.Transfer_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.Transfer_Enabled then
+                        ESP:Add(model,{
+                            Name = model.Name,
+                            Color = ESP_Coloring.Transfers,
+                            IsEnabled = "Transfer_Enabled";
+                            IsBoxEnabled = "Transfer_Boxes";
+                            IsNameEnabled = "Transfer_Names";
+                            IsDistanceEnabled = "Transfer_Distances";
+                            IsTracerEnabled = "Transfer_Tracers";
+                        })
+                        Instance.new("Part",model).Name = "EGG"
                     end
-                elseif others_folder and prompt:IsDescendantOf(others_folder) then
-                    -- Get Dungeons
-                    local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-                    if model and prompt.Name == (_G.Dungeon_PromptName) and not model:FindFirstChild("EGG") then
-                        if _G.savedsettings.Dungeon_Enabled then
-                            ESP:Add(model,{
-                                Name = model.Name,
-                                Color = ESP_Coloring.Dungeons,
-                                IsEnabled = "Dungeon_Enabled";
-                                IsBoxEnabled = "Dungeon_Boxes";
-                                IsNameEnabled = "Dungeon_Names";
-                                IsDistanceEnabled = "Dungeon_Distances";
-                                IsTracerEnabled = "Dungeon_Tracers";
-                            })
-                            Instance.new("Part",model).Name = "EGG"
-                        end
+                elseif model and prompt.Name == (_G.VoidRift_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.VoidRift_Enabled then
+                        ESP:Add(model,{
+                            Name = model.Name,
+                            Color = ESP_Coloring.VoidRifts,
+                            IsEnabled = "VoidRift_Enabled";
+                            IsBoxEnabled = "VoidRift_Boxes";
+                            IsNameEnabled = "VoidRift_Names";
+                            IsDistanceEnabled = "VoidRift_Distances";
+                            IsTracerEnabled = "VoidRift_Tracers";
+                        })
+                        Instance.new("Part",model).Name = "EGG"
+                    end
+                end
+            elseif shrines_folder and prompt:IsDescendantOf(shrines_folder) then
+                -- Get Shrines
+                local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
+                if model and prompt.Name == (_G.Shrine_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.Shrine_Enabled then
+                        ESP:Add(model,{
+                            Name = model.Name,
+                            Color = ESP_Coloring.Shrines,
+                            IsEnabled = "Shrine_Enabled";
+                            IsBoxEnabled = "Shrine_Boxes";
+                            IsNameEnabled = "Shrine_Names";
+                            IsDistanceEnabled = "Shrine_Distances";
+                            IsTracerEnabled = "Shrine_Tracers";
+                        })
+                        Instance.new("Part",model).Name = "EGG"
+                    end
+                end
+            elseif infusers_folder and prompt:IsDescendantOf(infusers_folder) then
+                -- Get Infusers
+                local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
+                if model and prompt.Name == (_G.Infuser_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.Infuser_Enabled then
+                        ESP:Add(model,{
+                            Name = model.Name,
+                            Color = ESP_Coloring.Infusers,
+                            IsEnabled = "Infuser_Enabled";
+                            IsBoxEnabled = "Infuser_Boxes";
+                            IsNameEnabled = "Infuser_Names";
+                            IsDistanceEnabled = "Infuser_Distances";
+                            IsTracerEnabled = "Infuser_Tracers";
+                        })
+                        Instance.new("Part",model).Name = "EGG"
+                    end
+                end
+            elseif others_folder and prompt:IsDescendantOf(others_folder) then
+                -- Get Dungeons
+                local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
+                if model and prompt.Name == (_G.Dungeon_PromptName) and not model:FindFirstChild("EGG") then
+                    if _G.savedsettings.Dungeon_Enabled then
+                        ESP:Add(model,{
+                            Name = model.Name,
+                            Color = ESP_Coloring.Dungeons,
+                            IsEnabled = "Dungeon_Enabled";
+                            IsBoxEnabled = "Dungeon_Boxes";
+                            IsNameEnabled = "Dungeon_Names";
+                            IsDistanceEnabled = "Dungeon_Distances";
+                            IsTracerEnabled = "Dungeon_Tracers";
+                        })
+                        Instance.new("Part",model).Name = "EGG"
                     end
                 end
             end
         end
-        wait()
     end
+	wait(0.05)
 end)
