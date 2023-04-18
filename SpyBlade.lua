@@ -593,7 +593,7 @@ local shrines_folder = workspace:FindFirstChild("Shrines")
 local infusers_folder = workspace:FindFirstChild("Infusers")
 local others_folder = workspace:FindFirstChild("Others")
 
-local EnemiesChildren = npcs_folder:GetChildren()
+local EnemiesChildren = {}
 local scannedprompts = {}
 
 local function EnemyAdded(v)
@@ -788,7 +788,7 @@ local Removed_infusers = infusers_folder.DescendantRemoving:Connect(DescendantRe
 local Added_others = others_folder.DescendantAdded:Connect(DescendantAdded)
 local Removed_others = others_folder.DescendantRemoving:Connect(DescendantRemoving)
 
-for _, object in ipairs(EnemiesChildren) do
+for _, object in ipairs(npcs_folder:GetChildren()) do
 	EnemyAdded(object)
 end
 for _, object in ipairs(interactables_folder:GetDescendants()) do
@@ -803,9 +803,8 @@ end
 for _, object in ipairs(others_folder:GetDescendants()) do
 	DescendantAdded(object)
 end
-if rconsoleprint then
-	rconsoleprint('@@RED@@')
-	rconsoleprint('GetDescendants functions completed')
+if (printconsole) then
+	printconsole('Intiated.', 0,100,255)
 end
 
 
