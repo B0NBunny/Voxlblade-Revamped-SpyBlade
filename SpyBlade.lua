@@ -219,34 +219,36 @@ Sectors.VoidRift = {};
 Sectors.Shrine = {};
     Sectors.Shrine.Settings = Categories.Shrine:Sector("ESP Settings");
 
+local tosave = false
+
 -- Player ESP Settings
 Sectors.Player.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Player_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Player_Names = State
-    savesettings()
+     tosave = true
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Player_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Player_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Health", function(State)
     _G.savedsettings.Player_Healths = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Player.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.Player_Enabled = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Player.Settings:Cheat("Slider", "Range", function(NewValue)
     _G.savedsettings.Player_Range = NewValue
-    savesettings()
+    tosave = true
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -258,31 +260,31 @@ end, {
 -- Enemy ESP Settings
 Sectors.Enemy.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Enemy_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Enemy_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Enemy_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Enemy_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Health", function(State)
     _G.savedsettings.Enemy_Healths = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Enemy.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.Enemy_Enabled = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Enemy.Settings:Cheat("Slider", "Range", function(NewValue)
     _G.savedsettings.Enemy_Range = NewValue
-    savesettings()
+    tosave = true
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -294,27 +296,27 @@ end, {
 -- NPC ESP Settings
 Sectors.NPC.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.NPC_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.NPC_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.NPC_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.NPC_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.NPC.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.NPC_Enabled = State
-    savesettings()
+    tosave = true
 end)
 Sectors.NPC.Settings:Cheat("Slider", "Range", function(NewValue)
     _G.savedsettings.NPC_Range = NewValue
-    savesettings()
+    tosave = true
 end, {
     default = defaultRangeValue;
     min = 50;
@@ -326,41 +328,41 @@ end, {
 -- BloodHand ESP Settings
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.BloodHand_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.BloodHand_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.BloodHand_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.BloodHand_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.BloodHand.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.BloodHand_Enabled = State
-    savesettings()
+    tosave = true
 end)
     
 -- Shop ESP Settings
 Sectors.Shop.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Shop_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Shop_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Shop_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Shop.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Shop_Tracers = State
-    savesettings()
+    tosave = true
 end)
 -- Shop Info
 Sectors.Shop.Info:Cheat("Label", "Choose which shops you would like to be shown.")
@@ -372,155 +374,155 @@ Sectors.Shop.Info:Cheat("Label", "The toggled states of shops don't save.")
 -- Crafting ESP Settings
 Sectors.Crafting.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Crafting_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Crafting_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Crafting_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Crafting_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Crafting.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.Crafting_Enabled = State
-    savesettings()
+    tosave = true
 end)
     
 -- Anvil ESP Settings
 Sectors.Anvil.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Anvil_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Anvil_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Anvil_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Anvil_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Anvil.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.Anvil_Enabled = State
-    savesettings()
+    tosave = true
 end)
     
 -- Infuser ESP Settings
 Sectors.Infuser.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Infuser_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Infuser_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Infuser_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Infuser_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Infuser.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.Infuser_Enabled = State
-    savesettings()
+    tosave = true
 end)
     
 -- Transfer ESP Settings
 Sectors.Transfer.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Transfer_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Transfer_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Transfer_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Transfer_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Transfer.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.Transfer_Enabled = State
-    savesettings()
+    tosave = true
 end)
     
 -- Dungeon ESP Settings
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Dungeon_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Dungeon_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Dungeon_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Dungeon_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Dungeon.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.Dungeon_Enabled = State
-    savesettings()
+    tosave = true
 end)
 
 -- VoidRift ESP Settings
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.VoidRift_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.VoidRift_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.VoidRift_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.VoidRift_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.VoidRift.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.VoidRift_Enabled = State
-    savesettings()
+    tosave = true
 end)
     
 -- Shrine ESP Settings
 Sectors.Shrine.Settings:Cheat("Checkbox", "Boxes", function(State)
     _G.savedsettings.Shrine_Boxes = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Names", function(State)
     _G.savedsettings.Shrine_Names = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Distances", function(State)
     _G.savedsettings.Shrine_Distances = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Tracers", function(State)
     _G.savedsettings.Shrine_Tracers = State
-    savesettings()
+    tosave = true
 end)
 Sectors.Shrine.Settings:Cheat("Checkbox", "Enabled", function(State)
     _G.savedsettings.Shrine_Enabled = State
-    savesettings()
+    tosave = true
 end)
 
 -- Script
@@ -585,29 +587,6 @@ for i,v in pairs(plrs:GetPlayers()) do
     end
 end
 
-proximityprompts = {}
-local function PromptAdded(prompt)
-    if prompt:IsA("ProximityPrompt") then
-        if not table.find(proximityprompts, prompt) then
-            table.insert(proximityprompts, prompt)
-        end
-    end
-end
-local function PromptRemoving(prompt)
-    if prompt:IsA("ProximityPrompt") then
-        local k = table.find(proximityprompts, prompt)
-        if k then
-            table.remove(proximityprompts, k)
-        end
-    end
-end
-for i,prompt in pairs(workspace:GetDescendants()) do
-    if prompt:IsA("ProximityPrompt") then
-        if not table.find(proximityprompts, prompt) then
-            table.insert(proximityprompts, prompt)
-        end
-    end
-end
 local npcs_folder = workspace:FindFirstChild("NPCS")
 local interactables_folder = workspace:FindFirstChild("Interactables")
 local shrines_folder = workspace:FindFirstChild("Shrines")
@@ -617,10 +596,15 @@ local others_folder = workspace:FindFirstChild("Others")
 local WorkspaceDescendants = workspace:GetDescendants()
 
 local function doesp(prompt)
+    local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
+    if model then
+        if not model:FindFirstChild("EGG") then
+
+        end
+    end
     if interactables_folder and prompt:IsDescendantOf(interactables_folder) then
         -- Get Interactables
-        local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-        if model and prompt.Name == (_G.Dialog_PromptName) and not model:FindFirstChild("EGG") then
+        if prompt.Name == (_G.Dialog_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.NPCs,
@@ -632,7 +616,7 @@ local function doesp(prompt)
                 RangeValue = "NPC_Range";
             })
             Instance.new("Part",model).Name = "EGG"
-        elseif model and prompt.Name == (_G.BloodHand_PromptName) and not model:FindFirstChild("EGG") then
+        elseif prompt.Name == (_G.BloodHand_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.BloodHands,
@@ -643,7 +627,7 @@ local function doesp(prompt)
                 IsTracerEnabled = "BloodHand_Tracers";
             })
             Instance.new("Part",model).Name = "EGG"
-        elseif model and prompt.Name == (_G.Shop_PromptName) and not model:FindFirstChild("EGG") then
+        elseif prompt.Name == (_G.Shop_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.Shops,
@@ -658,7 +642,7 @@ local function doesp(prompt)
                 ESP[model.Name] = State
             end)
             Instance.new("Part",model).Name = "EGG"
-        elseif model and prompt.Name == (_G.Crafting_PromptName) and not model:FindFirstChild("EGG") then
+        elseif prompt.Name == (_G.Crafting_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.Craftings,
@@ -669,7 +653,7 @@ local function doesp(prompt)
                 IsTracerEnabled = "Crafting_Tracers";
             })
             Instance.new("Part",model).Name = "EGG"
-        elseif model and prompt.Name == (_G.Anvil_PromptName) and not model:FindFirstChild("EGG") then
+        elseif prompt.Name == (_G.Anvil_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.Anvils,
@@ -680,7 +664,7 @@ local function doesp(prompt)
                 IsTracerEnabled = "Anvil_Tracers";
             })
             Instance.new("Part",model).Name = "EGG"
-        elseif model and prompt.Name == (_G.Transfer_PromptName) and not model:FindFirstChild("EGG") then
+        elseif prompt.Name == (_G.Transfer_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.Transfers,
@@ -691,7 +675,7 @@ local function doesp(prompt)
                 IsTracerEnabled = "Transfer_Tracers";
             })
             Instance.new("Part",model).Name = "EGG"
-        elseif model and prompt.Name == (_G.VoidRift_PromptName) and not model:FindFirstChild("EGG") then
+        elseif prompt.Name == (_G.VoidRift_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.VoidRifts,
@@ -705,8 +689,7 @@ local function doesp(prompt)
         end
     elseif shrines_folder and prompt:IsDescendantOf(shrines_folder) then
         -- Get Shrines
-        local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-        if model and prompt.Name == (_G.Shrine_PromptName) and not model:FindFirstChild("EGG") then
+        if prompt.Name == (_G.Shrine_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.Shrines,
@@ -720,8 +703,7 @@ local function doesp(prompt)
         end
     elseif infusers_folder and prompt:IsDescendantOf(infusers_folder) then
         -- Get Infusers
-        local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-        if model and prompt.Name == (_G.Infuser_PromptName) and not model:FindFirstChild("EGG") then
+        if prompt.Name == (_G.Infuser_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.Infusers,
@@ -735,8 +717,7 @@ local function doesp(prompt)
         end
     elseif others_folder and prompt:IsDescendantOf(others_folder) then
         -- Get Dungeons
-        local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
-        if model and prompt.Name == (_G.Dungeon_PromptName) and not model:FindFirstChild("EGG") then
+        if prompt.Name == (_G.Dungeon_PromptName) then
             ESP:Add(model,{
                 Name = model.Name,
                 Color = ESP_Coloring.Dungeons,
@@ -804,3 +785,10 @@ local function doespEnemy(v)
     end
 end
 local Added_npcs = npcs_folder.ChildAdded:Connect(doespEnemy)
+
+while wait(5) do
+    if tosave == true then
+        tosave = false
+        savesettings()
+    end
+end
