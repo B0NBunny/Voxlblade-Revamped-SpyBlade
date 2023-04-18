@@ -594,7 +594,8 @@ local infusers_folder = workspace:FindFirstChild("Infusers")
 local others_folder = workspace:FindFirstChild("Others")
 
 local EnemiesChildren = npcs_folder:GetChildren()
-local WorkspaceDescendants = workspace:GetDescendants()
+local scannedprompts = {}
+
 local function EnemyAdded(v)
 	if not table.find(EnemiesChildren, v) then
 		table.insert(EnemiesChildren, v)
@@ -632,8 +633,8 @@ local function EnemyRemoved(v)
 	end
 end
 local function DescendantAdded(prompt)
-	table.insert(WorkspaceDescendants, prompt)
 	if prompt:IsA("ProximityPrompt") then
+		table.insert(scannedprompts, prompt)
 		local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
 		if model then
 			if not model:FindFirstChild("EGG") then
@@ -641,84 +642,84 @@ local function DescendantAdded(prompt)
 					-- Get Interactables
 					if prompt.Name == (_G.Dialog_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.NPCs,
-						IsEnabled = "NPC_Enabled";
-						IsBoxEnabled = "NPC_Boxes";
-						IsNameEnabled = "NPC_Names";
-						IsDistanceEnabled = "NPC_Distances";
-						IsTracerEnabled = "NPC_Tracers";
-						RangeValue = "NPC_Range";
+							Name = model.Name,
+							Color = ESP_Coloring.NPCs,
+							IsEnabled = "NPC_Enabled";
+							IsBoxEnabled = "NPC_Boxes";
+							IsNameEnabled = "NPC_Names";
+							IsDistanceEnabled = "NPC_Distances";
+							IsTracerEnabled = "NPC_Tracers";
+							RangeValue = "NPC_Range";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					elseif prompt.Name == (_G.BloodHand_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.BloodHands,
-						IsEnabled = "BloodHand_Enabled";
-						IsBoxEnabled = "BloodHand_Boxes";
-						IsNameEnabled = "BloodHand_Names";
-						IsDistanceEnabled = "BloodHand_Distances";
-						IsTracerEnabled = "BloodHand_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.BloodHands,
+							IsEnabled = "BloodHand_Enabled";
+							IsBoxEnabled = "BloodHand_Boxes";
+							IsNameEnabled = "BloodHand_Names";
+							IsDistanceEnabled = "BloodHand_Distances";
+							IsTracerEnabled = "BloodHand_Tracers";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					elseif prompt.Name == (_G.Shop_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.Shops,
-						IsEnabled = model.Name;
-						IsBoxEnabled = "Shop_Boxes";
-						IsNameEnabled = "Shop_Names";
-						IsDistanceEnabled = "Shop_Distances";
-						IsTracerEnabled = "Shop_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.Shops,
+							IsEnabled = model.Name;
+							IsBoxEnabled = "Shop_Boxes";
+							IsNameEnabled = "Shop_Names";
+							IsDistanceEnabled = "Shop_Distances";
+							IsTracerEnabled = "Shop_Tracers";
 						})
 						ESP[model.Name] = false
 						Sectors.Shop.Shops:Cheat("Checkbox", model.Name, function(State)
-						ESP[model.Name] = State
+							ESP[model.Name] = State
 						end)
 						Instance.new("Part",model).Name = "EGG"
 					elseif prompt.Name == (_G.Crafting_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.Craftings,
-						IsEnabled = "Crafting_Enabled";
-						IsBoxEnabled = "Crafting_Boxes";
-						IsNameEnabled = "Crafting_Names";
-						IsDistanceEnabled = "Crafting_Distances";
-						IsTracerEnabled = "Crafting_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.Craftings,
+							IsEnabled = "Crafting_Enabled";
+							IsBoxEnabled = "Crafting_Boxes";
+							IsNameEnabled = "Crafting_Names";
+							IsDistanceEnabled = "Crafting_Distances";
+							IsTracerEnabled = "Crafting_Tracers";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					elseif prompt.Name == (_G.Anvil_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.Anvils,
-						IsEnabled = "Anvil_Enabled";
-						IsBoxEnabled = "Anvil_Boxes";
-						IsNameEnabled = "Anvil_Names";
-						IsDistanceEnabled = "Anvil_Distances";
-						IsTracerEnabled = "Anvil_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.Anvils,
+							IsEnabled = "Anvil_Enabled";
+							IsBoxEnabled = "Anvil_Boxes";
+							IsNameEnabled = "Anvil_Names";
+							IsDistanceEnabled = "Anvil_Distances";
+							IsTracerEnabled = "Anvil_Tracers";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					elseif prompt.Name == (_G.Transfer_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.Transfers,
-						IsEnabled = "Transfer_Enabled";
-						IsBoxEnabled = "Transfer_Boxes";
-						IsNameEnabled = "Transfer_Names";
-						IsDistanceEnabled = "Transfer_Distances";
-						IsTracerEnabled = "Transfer_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.Transfers,
+							IsEnabled = "Transfer_Enabled";
+							IsBoxEnabled = "Transfer_Boxes";
+							IsNameEnabled = "Transfer_Names";
+							IsDistanceEnabled = "Transfer_Distances";
+							IsTracerEnabled = "Transfer_Tracers";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					elseif prompt.Name == (_G.VoidRift_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.VoidRifts,
-						IsEnabled = "VoidRift_Enabled";
-						IsBoxEnabled = "VoidRift_Boxes";
-						IsNameEnabled = "VoidRift_Names";
-						IsDistanceEnabled = "VoidRift_Distances";
-						IsTracerEnabled = "VoidRift_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.VoidRifts,
+							IsEnabled = "VoidRift_Enabled";
+							IsBoxEnabled = "VoidRift_Boxes";
+							IsNameEnabled = "VoidRift_Names";
+							IsDistanceEnabled = "VoidRift_Distances";
+							IsTracerEnabled = "VoidRift_Tracers";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					end
@@ -726,13 +727,13 @@ local function DescendantAdded(prompt)
 					-- Get Shrines
 					if prompt.Name == (_G.Shrine_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.Shrines,
-						IsEnabled = "Shrine_Enabled";
-						IsBoxEnabled = "Shrine_Boxes";
-						IsNameEnabled = "Shrine_Names";
-						IsDistanceEnabled = "Shrine_Distances";
-						IsTracerEnabled = "Shrine_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.Shrines,
+							IsEnabled = "Shrine_Enabled";
+							IsBoxEnabled = "Shrine_Boxes";
+							IsNameEnabled = "Shrine_Names";
+							IsDistanceEnabled = "Shrine_Distances";
+							IsTracerEnabled = "Shrine_Tracers";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					end
@@ -740,13 +741,13 @@ local function DescendantAdded(prompt)
 					-- Get Infusers
 					if prompt.Name == (_G.Infuser_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.Infusers,
-						IsEnabled = "Infuser_Enabled";
-						IsBoxEnabled = "Infuser_Boxes";
-						IsNameEnabled = "Infuser_Names";
-						IsDistanceEnabled = "Infuser_Distances";
-						IsTracerEnabled = "Infuser_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.Infusers,
+							IsEnabled = "Infuser_Enabled";
+							IsBoxEnabled = "Infuser_Boxes";
+							IsNameEnabled = "Infuser_Names";
+							IsDistanceEnabled = "Infuser_Distances";
+							IsTracerEnabled = "Infuser_Tracers";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					end
@@ -754,13 +755,13 @@ local function DescendantAdded(prompt)
 					-- Get Dungeons
 					if prompt.Name == (_G.Dungeon_PromptName) then
 						ESP:Add(model,{
-						Name = model.Name,
-						Color = ESP_Coloring.Dungeons,
-						IsEnabled = "Dungeon_Enabled";
-						IsBoxEnabled = "Dungeon_Boxes";
-						IsNameEnabled = "Dungeon_Names";
-						IsDistanceEnabled = "Dungeon_Distances";
-						IsTracerEnabled = "Dungeon_Tracers";
+							Name = model.Name,
+							Color = ESP_Coloring.Dungeons,
+							IsEnabled = "Dungeon_Enabled";
+							IsBoxEnabled = "Dungeon_Boxes";
+							IsNameEnabled = "Dungeon_Names";
+							IsDistanceEnabled = "Dungeon_Distances";
+							IsTracerEnabled = "Dungeon_Tracers";
 						})
 						Instance.new("Part",model).Name = "EGG"
 					end
@@ -775,6 +776,7 @@ local function DescendantRemoving(prompt)
 		table.remove(WorkspaceDescendants, i)
 	end
 end
+
 local Added_enemies = npcs_folder.ChildAdded:Connect(EnemyAdded)
 local Removed_enemies = npcs_folder.ChildRemoved:Connect(EnemyRemoved)
 local Added_interactables = interactables_folder.DescendantAdded:Connect(DescendantAdded)
@@ -785,10 +787,20 @@ local Added_infusers = infusers_folder.DescendantAdded:Connect(DescendantAdded)
 local Removed_infusers = infusers_folder.DescendantRemoving:Connect(DescendantRemoving)
 local Added_others = others_folder.DescendantAdded:Connect(DescendantAdded)
 local Removed_others = others_folder.DescendantRemoving:Connect(DescendantRemoving)
+
 for _, object in ipairs(EnemiesChildren) do
 	EnemyAdded(object)
 end
-for _, object in ipairs(WorkspaceDescendants) do
+for _, object in ipairs(interactables_folder:GetDescendants()) do
+	DescendantAdded(object)
+end
+for _, object in ipairs(shrines_folder:GetDescendants()) do
+	DescendantAdded(object)
+end
+for _, object in ipairs(infusers_folder:GetDescendants()) do
+	DescendantAdded(object)
+end
+for _, object in ipairs(others_folder:GetDescendants()) do
 	DescendantAdded(object)
 end
 
