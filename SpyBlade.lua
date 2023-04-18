@@ -624,8 +624,8 @@ local Added_others = others_folder.DescendantAdded:Connect(PromptAdded)
 local Removed_others = others_folder.DescendantRemoving:Connect(PromptRemoving)
 
 while true do
-	if _G.savedsettings.Enemy_Enabled then
-	    if npcs_folder then
+    if _G.savedsettings.Enemy_Enabled then
+        if npcs_folder then
             -- Get Enemies
             local npcs_children = npcs_folder:GetChildren()
             for i,v in pairs(npcs_children) do
@@ -634,57 +634,57 @@ while true do
                     -- Add ESP
                     if _G.savedsettings.Enemy_Enabled then
                         ESP:Add(model.HumanoidRootPart,{
-                        Name = v.Name;
-                        PrimaryPart = model.HumanoidRootPart;
-                        Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
-                        IsEnabled = "Enemy_Enabled";
-                        IsBoxEnabled = "Enemy_Boxes";
-                        IsNameEnabled = "Enemy_Names";
-                        IsDistanceEnabled = "Enemy_Distances";
-                        IsTracerEnabled = "Enemy_Tracers";
-                        IsHealthEnabled = "Enemy_Healths";
-                        RangeValue = "Enemy_Range";
-                        HealthAttributePart = v;
-                        HealthAttributeName = "HP";
-                        MaxHealthAttributePart = v;
-                        MaxHealthAttributeName = "MAXHP";
+                            Name = v.Name;
+                            PrimaryPart = model.HumanoidRootPart;
+                            Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
+                            IsEnabled = "Enemy_Enabled";
+                            IsBoxEnabled = "Enemy_Boxes";
+                            IsNameEnabled = "Enemy_Names";
+                            IsDistanceEnabled = "Enemy_Distances";
+                            IsTracerEnabled = "Enemy_Tracers";
+                            IsHealthEnabled = "Enemy_Healths";
+                            RangeValue = "Enemy_Range";
+                            HealthAttributePart = v;
+                            HealthAttributeName = "HP";
+                            MaxHealthAttributePart = v;
+                            MaxHealthAttributeName = "MAXHP";
                         })
                         Instance.new("Part",model).Name = "EGG"
                     end
                 end
             end
             wait()
-	    end
-	end
-	for i,prompt in pairs(proximityprompts) do
-	    if prompt:IsA("ProximityPrompt") then
+        end
+    end
+    for i,prompt in pairs(proximityprompts) do
+        if prompt:IsA("ProximityPrompt") then
             if interactables_folder and prompt:IsDescendantOf(interactables_folder) then
                 -- Get Interactables
                 local model = prompt:FindFirstAncestorOfClass("Model") or prompt:FindFirstAncestorOfClass("MeshPart")
                 if model and prompt.Name == (_G.Dialog_PromptName) and not model:FindFirstChild("EGG") then
                     if _G.savedsettings.NPC_Enabled then
                         ESP:Add(model,{
-                        Name = model.Name,
-                        Color = ESP_Coloring.NPCs,
-                        IsEnabled = "NPC_Enabled";
-                        IsBoxEnabled = "NPC_Boxes";
-                        IsNameEnabled = "NPC_Names";
-                        IsDistanceEnabled = "NPC_Distances";
-                        IsTracerEnabled = "NPC_Tracers";
-                        RangeValue = "NPC_Range";
+                            Name = model.Name,
+                            Color = ESP_Coloring.NPCs,
+                            IsEnabled = "NPC_Enabled";
+                            IsBoxEnabled = "NPC_Boxes";
+                            IsNameEnabled = "NPC_Names";
+                            IsDistanceEnabled = "NPC_Distances";
+                            IsTracerEnabled = "NPC_Tracers";
+                            RangeValue = "NPC_Range";
                         })
                         Instance.new("Part",model).Name = "EGG"
                     end
                 elseif model and prompt.Name == (_G.BloodHand_PromptName) and not model:FindFirstChild("EGG") then
                     if _G.savedsettings.BloodHand_Enabled then
                         ESP:Add(model,{
-                        Name = model.Name,
-                        Color = ESP_Coloring.BloodHands,
-                        IsEnabled = "BloodHand_Enabled";
-                        IsBoxEnabled = "BloodHand_Boxes";
-                        IsNameEnabled = "BloodHand_Names";
-                        IsDistanceEnabled = "BloodHand_Distances";
-                        IsTracerEnabled = "BloodHand_Tracers";
+                            Name = model.Name,
+                            Color = ESP_Coloring.BloodHands,
+                            IsEnabled = "BloodHand_Enabled";
+                            IsBoxEnabled = "BloodHand_Boxes";
+                            IsNameEnabled = "BloodHand_Names";
+                            IsDistanceEnabled = "BloodHand_Distances";
+                            IsTracerEnabled = "BloodHand_Tracers";
                         })
                         Instance.new("Part",model).Name = "EGG"
                     end
@@ -726,7 +726,7 @@ while true do
                             IsNameEnabled = "Anvil_Names";
                             IsDistanceEnabled = "Anvil_Distances";
                             IsTracerEnabled = "Anvil_Tracers";
-                            })
+                        })
                         Instance.new("Part",model).Name = "EGG"
                     end
                 elseif model and prompt.Name == (_G.Transfer_PromptName) and not model:FindFirstChild("EGG") then
@@ -810,5 +810,5 @@ while true do
             end
         end
     end
-	wait(0.05)
-end)
+    wait()
+end
