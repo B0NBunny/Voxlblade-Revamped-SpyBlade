@@ -317,14 +317,12 @@ end
 function updatebox(box)
 	debug.profilebegin("Spyblade-Update")
 	cam = workspace.CurrentCamera
-
-	if ESP.Enabled and box.Enabled and box[] then
-		if box.Update then
-			local s,e = pcall(v.Update, v)
-			if not s then
-				local errorstring = '[Error] '..e..' '..v.Object:GetFullName()
-				printconsole(errorstring, 255,255,0)
-			end
+	
+	if box.Update and ESP.Enabled and ESP[box.IsEnabled] then
+		local s,e = pcall(v.Update, v)
+		if not s then
+			local errorstring = '[Error] '..e..' '..v.Object:GetFullName()
+			printconsole(errorstring, 255,255,0)
 		end
 	end
 	
