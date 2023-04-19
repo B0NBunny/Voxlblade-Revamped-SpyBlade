@@ -408,7 +408,7 @@ function ESP:Add(obj, options)
     end
 
 	box.updateConnection = nil
-	box.updateConnection = game:GetService("RunService").Heartbeat:ConnectParallel(function()
+	box.updateConnection = game:GetService("RunService").Heartbeat:Connect(function()
 		if box.Update and ESP.Enabled then
 			local s,e = pcall(box.Update, box)
 			if not s then
