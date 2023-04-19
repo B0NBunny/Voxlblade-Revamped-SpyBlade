@@ -779,6 +779,7 @@ end
 
 local Added_enemies = npcs_folder.ChildAdded:Connect(EnemyAdded)
 local Removed_enemies = npcs_folder.ChildRemoved:Connect(EnemyRemoved)
+--[[
 local Added_interactables = interactables_folder.DescendantAdded:Connect(DescendantAdded)
 local Removed_interactables = interactables_folder.DescendantRemoving:Connect(DescendantRemoving)
 local Added_shrines = shrines_folder.DescendantAdded:Connect(DescendantAdded)
@@ -787,6 +788,7 @@ local Added_infusers = infusers_folder.DescendantAdded:Connect(DescendantAdded)
 local Removed_infusers = infusers_folder.DescendantRemoving:Connect(DescendantRemoving)
 local Added_others = others_folder.DescendantAdded:Connect(DescendantAdded)
 local Removed_others = others_folder.DescendantRemoving:Connect(DescendantRemoving)
+]]
 
 for _, object in ipairs(npcs_folder:GetChildren()) do
 	EnemyAdded(object)
