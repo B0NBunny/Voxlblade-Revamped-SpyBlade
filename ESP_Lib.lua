@@ -319,6 +319,10 @@ function updatebox(box)
 	cam = workspace.CurrentCamera
 	
 	if box.Update and ESP.Enabled and ESP[box.IsEnabled] then
+		if (printconsole) then
+			printconsole('[Running Update]', 0,100,255)
+		end
+
 		local s,e = pcall(box.Update, box)
 		if not s then
 			local errorstring = '[Error] '..e..' '..box.Object:GetFullName()
