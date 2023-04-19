@@ -416,7 +416,7 @@ function ESP:Add(obj, options)
 				printconsole(errorstring, 255,255,0)
 			end
 		end
-	end
+	end)
 	
     return box
 end
