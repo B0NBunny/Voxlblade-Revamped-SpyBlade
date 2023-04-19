@@ -20,6 +20,7 @@ local ESP = {
 --Declarations--
 local cam = workspace.CurrentCamera
 local plrs = game:GetService("Players")
+local RS = game:GetService("RunService")
 local plr = plrs.LocalPlayer
 local mouse = plr:GetMouse()
 
@@ -313,6 +314,23 @@ function boxBase:Update()
     end
 end
 
+function updatebox(box)
+	debug.profilebegin("Spyblade-Update")
+	cam = workspace.CurrentCamera
+
+	if ESP.Enabled and box.Enabled and box[] then
+		if box.Update then
+			local s,e = pcall(v.Update, v)
+			if not s then
+				local errorstring = '[Error] '..e..' '..v.Object:GetFullName()
+				printconsole(errorstring, 255,255,0)
+			end
+		end
+	end
+	
+	debug.profileend()
+end
+
 function ESP:Add(obj, options)
     if not obj.Parent and not options.RenderInNil then
         return warn(obj, "has no parent")
@@ -407,25 +425,9 @@ function ESP:Add(obj, options)
 		end)
     end
 	
+	box.UpdateConnection = RS.Heartbeat:Connect(updatebox)
+	
     return box
 end
-
-local updateConnection = game:GetService("RunService").Heartbeat:Connect(function()
-	debug.profilebegin("Spyblade-Update")
-	cam = workspace.CurrentCamera
-	
-	task.desynchronize()
-	for i,v in (ESP.Enabled and pairs or ipairs)(ESP.Objects) do
-		if v.Update then
-			local s,e = pcall(v.Update, v)
-		    if not s then
-				local errorstring = '[Error] '..e..' '..v.Object:GetFullName()
-				printconsole(errorstring, 255,255,0)
-		    end
-		end
-	end
-	
-	debug.profileend()
-end)
 
 return ESP
