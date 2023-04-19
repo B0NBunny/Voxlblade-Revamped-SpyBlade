@@ -314,25 +314,6 @@ function boxBase:Update()
     end
 end
 
-function updatebox(box)
-	debug.profilebegin("Spyblade-Update")
-	cam = workspace.CurrentCamera
-	
-	if box.Update and ESP.Enabled and ESP[box.IsEnabled] then
-		if (printconsole) then
-			printconsole('[Running Update]', 0,100,255)
-		end
-
-		local s,e = pcall(box.Update, box)
-		if not s then
-			local errorstring = '[Error] '..e..' '..box.Object:GetFullName()
-			printconsole(errorstring, 255,255,0)
-		end
-	end
-	
-	debug.profileend()
-end
-
 function ESP:Add(obj, options)
     if not obj.Parent and not options.RenderInNil then
         return warn(obj, "has no parent")
@@ -428,7 +409,22 @@ function ESP:Add(obj, options)
     end
 	
 	box.UpdateConnection = RS.Heartbeat:Connect(function()
-		updatebox(box)
+		debug.profilebegin("Spyblade-Update")
+		cam = workspace.CurrentCamera
+
+		if box.Update and self.Enabled and self[box.IsEnabled] then
+			if (printconsole) then
+				printconsole('[Running Update]', 0,100,255)
+			end
+
+			local s,e = pcall(box.Update, box)
+			if not s then
+				local errorstring = '[Error] '..e..' '..box.Object:GetFullName()
+				printconsole(errorstring, 255,255,0)
+			end
+		end
+	
+		debug.profileend()
 	end)
 	
     return box
