@@ -406,26 +406,23 @@ function ESP:Add(obj, options)
             end
 		end)
     end
+	
+    return box
+end
 
-	box.updateConnection = nil
-	box.updateConnection = game:GetService("RunService").Heartbeat:Connect(function()
-		debug.profilebegin("SpyBlade-UpdateESP")
-		if box.Update and self.Enabled and self[box.IsEnabled] then
+local updateCamConnection = game:GetService("RunService").Heartbeat:ConnectParallel(function()
+	debug.profilebegin("Spyblade-Update")
+    cam = workspace.CurrentCamera
+	
+		
+	if box.Update and self.Enabled and self[box.IsEnabled] then
 			local s,e = pcall(box.Update, box)
 			if not s then
 				local errorstring = '[Error] '..e..' '..box.Object:GetFullName()
 				printconsole(errorstring, 255,255,0)
 			end
-		end
-		debug.profileend()
-	end)
+		end	
 	
-    return box
-end
-
-local updateCamConnection = game:GetService("RunService").Heartbeat:Connect(function()
-	debug.profilebegin("SpyBlade-UpdateCamera")
-    cam = workspace.CurrentCamera
 	debug.profileend()
 end)
 
