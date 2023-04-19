@@ -810,14 +810,15 @@ if (printconsole) then
 	printconsole('Intiated.', 0,100,255)
 end
 
-
-coroutine.resume(coroutine.create(function()
+local saveloop = function()
 	debug.profilebegin("Spyblade-SaveSettings")
-	while wait(5) do
+	while task.wait(5) do
 		if tosave == true then
 			tosave = false
 			savesettings()
 		end
 	end
 	debug.profileend()
-end))
+end
+local savecoroutine = coroutine.create(saveloop)
+coroutine.resume(savecoroutine)
