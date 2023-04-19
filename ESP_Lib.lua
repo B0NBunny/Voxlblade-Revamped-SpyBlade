@@ -412,23 +412,11 @@ function ESP:Add(obj, options)
 		debug.profilebegin("Spyblade-Update")
 		cam = workspace.CurrentCamera
 
-		if (printconsole) then
-			printconsole('[trying to run Update]', 0,100,255)
-		end
 		if box.Update and self.Enabled and _G.savedsettings[box.IsEnabled] then
-			if (printconsole) then
-				printconsole('[running Update]', 50,255,50)
-			end
-
 			local s,e = pcall(box.Update, box)
 			if not s then
 				local errorstring = '[Error] '..e..' '..box.Object:GetFullName()
 				printconsole(errorstring, 255,255,0)
-			end
-		else
-			if (printconsole) then
-				printconsole('[ESP.Enabled = '..tostring(self.Enabled)..']', 255,0,0)
-				printconsole('[ESP[box.IsEnabled] = '..tostring(_G.savedsettings[box.IsEnabled])..']', 255,0,0)
 			end
 		end
 	
