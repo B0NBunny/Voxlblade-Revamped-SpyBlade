@@ -347,17 +347,17 @@ function ESP:Add(obj, options)
         Temporary = options.Temporary,
         ColorDynamic = options.ColorDynamic,
         RenderInNil = options.RenderInNil,
-	--Edited by B0NBunny
-	IsBoxEnabled = options.IsBoxEnabled,
-	IsNameEnabled = options.IsNameEnabled,
-	IsDistanceEnabled = options.IsDistanceEnabled,
-	IsTracerEnabled = options.IsTracerEnabled,
-	IsHealthEnabled = options.IsHealthEnabled,
+		--Edited by B0NBunny
+		IsBoxEnabled = options.IsBoxEnabled,
+		IsNameEnabled = options.IsNameEnabled,
+		IsDistanceEnabled = options.IsDistanceEnabled,
+		IsTracerEnabled = options.IsTracerEnabled,
+		IsHealthEnabled = options.IsHealthEnabled,
         RangeValue = options.RangeValue,
-	HealthAttributePart = options.HealthAttributePart,
-	HealthAttributeName = options.HealthAttributeName,
-	MaxHealthAttributePart = options.MaxHealthAttributePart,
-	MaxHealthAttributeName = options.MaxHealthAttributeName
+		HealthAttributePart = options.HealthAttributePart,
+		HealthAttributeName = options.HealthAttributeName,
+		MaxHealthAttributePart = options.MaxHealthAttributePart,
+		MaxHealthAttributeName = options.MaxHealthAttributeName
     }, boxBase)
 
     if self:GetBox(obj) then
@@ -423,7 +423,9 @@ function ESP:Add(obj, options)
 		end)
     end
 	
-	box.UpdateConnection = RS.Heartbeat:Connect(updatebox)
+	box.UpdateConnection = RS.Heartbeat:Connect(function()
+		updatebox(box)
+	end)
 	
     return box
 end
