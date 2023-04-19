@@ -410,18 +410,19 @@ function ESP:Add(obj, options)
     return box
 end
 
-local updateCamConnection = game:GetService("RunService").Heartbeat:ConnectParallel(function()
+local updateConnection = game:GetService("RunService").Heartbeat:ConnectParallel(function()
 	debug.profilebegin("Spyblade-Update")
-    cam = workspace.CurrentCamera
+	cam = workspace.CurrentCamera
 	
-		
-	if box.Update and self.Enabled and self[box.IsEnabled] then
-			local s,e = pcall(box.Update, box)
-			if not s then
-				local errorstring = '[Error] '..e..' '..box.Object:GetFullName()
-				printconsole(errorstring, 255,255,0)
-			end
-		end	
+	for i,v in (ESP.Enabled and pairs or ipairs)(ESP.Objects) do
+        if v.Update then
+			local s,e = pcall(v.Update, v)
+            if not s then
+                local errorstring = '[Error] '..e..' '..v.Object:GetFullName()
+                printconsole(errorstring, 255,255,0)
+            end
+        end
+    end
 	
 	debug.profileend()
 end)
