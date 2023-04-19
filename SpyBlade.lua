@@ -621,7 +621,7 @@ local function EnemyAdded(v)
 						MaxHealthAttributePart = v;
 						MaxHealthAttributeName = "MAXHP";
 					})
-					Instance.new("Part",model).Name = "EGG"
+					Instance.new("BoolValue",model).Name = "EGG"
 				end
 			end
 		end
@@ -652,7 +652,7 @@ local function DescendantAdded(prompt)
 							IsTracerEnabled = "NPC_Tracers";
 							RangeValue = "NPC_Range";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					elseif prompt.Name == (_G.BloodHand_PromptName) then
 						ESP:Add(model,{
 							Name = model.Name,
@@ -663,7 +663,7 @@ local function DescendantAdded(prompt)
 							IsDistanceEnabled = "BloodHand_Distances";
 							IsTracerEnabled = "BloodHand_Tracers";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					elseif prompt.Name == (_G.Shop_PromptName) then
 						ESP:Add(model,{
 							Name = model.Name,
@@ -678,7 +678,7 @@ local function DescendantAdded(prompt)
 						Sectors.Shop.Shops:Cheat("Checkbox", model.Name, function(State)
 							ESP[model.Name] = State
 						end)
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					elseif prompt.Name == (_G.Crafting_PromptName) then
 						ESP:Add(model,{
 							Name = model.Name,
@@ -689,7 +689,7 @@ local function DescendantAdded(prompt)
 							IsDistanceEnabled = "Crafting_Distances";
 							IsTracerEnabled = "Crafting_Tracers";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					elseif prompt.Name == (_G.Anvil_PromptName) then
 						ESP:Add(model,{
 							Name = model.Name,
@@ -700,7 +700,7 @@ local function DescendantAdded(prompt)
 							IsDistanceEnabled = "Anvil_Distances";
 							IsTracerEnabled = "Anvil_Tracers";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					elseif prompt.Name == (_G.Transfer_PromptName) then
 						ESP:Add(model,{
 							Name = model.Name,
@@ -711,7 +711,7 @@ local function DescendantAdded(prompt)
 							IsDistanceEnabled = "Transfer_Distances";
 							IsTracerEnabled = "Transfer_Tracers";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					elseif prompt.Name == (_G.VoidRift_PromptName) then
 						ESP:Add(model,{
 							Name = model.Name,
@@ -722,7 +722,7 @@ local function DescendantAdded(prompt)
 							IsDistanceEnabled = "VoidRift_Distances";
 							IsTracerEnabled = "VoidRift_Tracers";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					end
 				elseif shrines_folder and prompt:IsDescendantOf(shrines_folder) then
 					-- Get Shrines
@@ -736,7 +736,7 @@ local function DescendantAdded(prompt)
 							IsDistanceEnabled = "Shrine_Distances";
 							IsTracerEnabled = "Shrine_Tracers";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					end
 				elseif infusers_folder and prompt:IsDescendantOf(infusers_folder) then
 					-- Get Infusers
@@ -750,7 +750,7 @@ local function DescendantAdded(prompt)
 							IsDistanceEnabled = "Infuser_Distances";
 							IsTracerEnabled = "Infuser_Tracers";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					end
 				elseif others_folder and prompt:IsDescendantOf(others_folder) then
 					-- Get Dungeons
@@ -764,7 +764,7 @@ local function DescendantAdded(prompt)
 							IsDistanceEnabled = "Dungeon_Distances";
 							IsTracerEnabled = "Dungeon_Tracers";
 						})
-						Instance.new("Part",model).Name = "EGG"
+						Instance.new("BoolValue",model).Name = "EGG"
 					end
 				end
 			end
