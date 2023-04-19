@@ -254,7 +254,7 @@ function boxBase:Update()
         local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
         
         if Vis5 then
-            amounttags+=1
+            amounttags = amounttags + 1
             self.Components.Health.Visible = true
             self.Components.Health.Position = Vector2.new(TagPos.X, TagPos.Y + (14*amounttags))
 			
@@ -285,7 +285,7 @@ function boxBase:Update()
         local TagPos, Vis5 = WorldToViewportPoint(cam, locs.TagPos.p)
         
         if Vis5 then
-            amounttags+=1
+            amounttags = amounttags + 1
             self.Components.Distance.Visible = true
             self.Components.Distance.Position = Vector2.new(TagPos.X, TagPos.Y + (14*amounttags))
             self.Components.Distance.Text = math.floor((cam.CFrame.p - cf.p).magnitude) .." studs away"
