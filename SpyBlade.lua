@@ -1,5 +1,6 @@
 local plrs = game:GetService("Players")
 local httpservice = game:GetService("HttpService")
+local runservice = game:GetService("RunService")
 local plr = plrs.LocalPlayer
 local getasset = getsynasset or getcustomasset or function(id) return "rbxasset://"..id end
 local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or request or function(data)
@@ -810,9 +811,11 @@ if (printconsole) then
 end
 
 
+coroutine.resume(coroutine.create(function()
 while wait(5) do
     if tosave == true then
         tosave = false
         savesettings()
     end
 end
+end))
