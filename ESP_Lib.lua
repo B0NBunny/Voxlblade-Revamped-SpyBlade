@@ -407,20 +407,22 @@ function ESP:Add(obj, options)
 		end)
     end
 
+	box.updateConnection = nil
+	box.updateConnection = game:GetService("RunService").Heartbeat:ConnectParallel(function()
+		if box.Update and ESP.Enabled then
+			local s,e = pcall(box.Update, box)
+			if not s then
+				local errorstring = '[Error] '..e..' '..box.Object:GetFullName()
+				printconsole(errorstring, 255,255,0)
+			end
+		end
+	end
+	
     return box
 end
 
-game:GetService("RunService").Heartbeat:Connect(function()
+local updateCamConnection = game:GetService("RunService").Heartbeat:Connect(function()
     cam = workspace.CurrentCamera
-    for i,v in (ESP.Enabled and pairs or ipairs)(ESP.Objects) do
-        if v.Update then
-			local s,e = pcall(v.Update, v)
-            if not s then
-                local errorstring = '[Error] '..e..' '..v.Object:GetFullName()
-                printconsole(errorstring, 255,255,0)
-            end
-        end
-    end
 end)
 
 return ESP
