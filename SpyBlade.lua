@@ -812,10 +812,12 @@ end
 
 
 coroutine.resume(coroutine.create(function()
-while wait(5) do
-    if tosave == true then
-        tosave = false
-        savesettings()
-    end
-end
+	debug.profilebegin("Spyblade-SaveSettings")
+	while wait(5) do
+		if tosave == true then
+			tosave = false
+			savesettings()
+		end
+	end
+	debug.profileend()
 end))
