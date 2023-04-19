@@ -415,7 +415,7 @@ function ESP:Add(obj, options)
 		if (printconsole) then
 			printconsole('[trying to run Update]', 0,100,255)
 		end
-		if box.Update and self.Enabled and self[box.IsEnabled] then
+		if box.Update and self.Enabled and _G.savedsettings[box.IsEnabled] then
 			if (printconsole) then
 				printconsole('[running Update]', 50,255,50)
 			end
@@ -428,7 +428,7 @@ function ESP:Add(obj, options)
 		else
 			if (printconsole) then
 				printconsole('[ESP.Enabled = '..tostring(self.Enabled)..']', 255,0,0)
-				printconsole('[ESP[box.IsEnabled] = '..tostring(self[box.IsEnabled])..']', 255,0,0)
+				printconsole('[ESP[box.IsEnabled] = '..tostring(_G.savedsettings[box.IsEnabled])..']', 255,0,0)
 			end
 		end
 	
