@@ -412,7 +412,7 @@ function ESP:Add(obj, options)
 		debug.profilebegin("Spyblade-Update")
 		cam = workspace.CurrentCamera
 
-		if box.Update and self.Enabled and _G.savedsettings[box.IsEnabled] then
+		if box.Update and self.Enabled then
 			local s,e = pcall(box.Update, box)
 			if not s then
 				local errorstring = '[Error] '..e..' '..box.Object:GetFullName()
