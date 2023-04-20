@@ -767,9 +767,6 @@ local function DescendantRemoving(prompt)
 	end
 end
 
-for _, object in ipairs(npcs_folder:GetChildren()) do
-	EnemyAdded(object)
-end
 for _, object in ipairs(interactables_folder:GetDescendants()) do
 	DescendantAdded(object)
 end
@@ -792,9 +789,8 @@ local enemyloop = function()
 		if _G.savedsettings.Enemy_Enabled then
 		    if npcs_folder then
 				-- Get Enemies
-				local npcs_children = npcs_folder:GetChildren()
-				for v in next, npcs_children do
-					EnemyAdded(v)
+				for _, object in ipairs(npcs_folder:GetChildren()) do
+					EnemyAdded(object)
 				end
 		    end
 		end
