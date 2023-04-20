@@ -593,6 +593,8 @@ local shrines_folder = workspace:FindFirstChild("Shrines")
 local infusers_folder = workspace:FindFirstChild("Infusers")
 local others_folder = workspace:FindFirstChild("Others")
 
+local scannedprompts = {}
+
 local function EnemyAdded(v)
 	local model = v:FindFirstChildOfClass("Model")
 	if model then
