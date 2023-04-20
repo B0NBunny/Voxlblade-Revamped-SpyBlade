@@ -593,43 +593,31 @@ local shrines_folder = workspace:FindFirstChild("Shrines")
 local infusers_folder = workspace:FindFirstChild("Infusers")
 local others_folder = workspace:FindFirstChild("Others")
 
-local EnemiesChildren = {}
-local scannedprompts = {}
-
 local function EnemyAdded(v)
-	if not table.find(EnemiesChildren, v) then
-		table.insert(EnemiesChildren, v)
-		local model = v:FindFirstChildOfClass("Model")
-		if model then
-			if not model:FindFirstChild("EGG") then
-				if model:FindFirstChild("HumanoidRootPart") then
-					-- Add ESP
-					ESP:Add(model.HumanoidRootPart,{
-						Name = v.Name;
-						PrimaryPart = model.HumanoidRootPart;
-						Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
-						IsEnabled = "Enemy_Enabled";
-						IsBoxEnabled = "Enemy_Boxes";
-						IsNameEnabled = "Enemy_Names";
-						IsDistanceEnabled = "Enemy_Distances";
-						IsTracerEnabled = "Enemy_Tracers";
-						IsHealthEnabled = "Enemy_Healths";
-						RangeValue = "Enemy_Range";
-						HealthAttributePart = v;
-						HealthAttributeName = "HP";
-						MaxHealthAttributePart = v;
-						MaxHealthAttributeName = "MAXHP";
-					})
-					Instance.new("BoolValue",model).Name = "EGG"
-				end
+	local model = v:FindFirstChildOfClass("Model")
+	if model then
+		if not model:FindFirstChild("EGG") then
+			if model:FindFirstChild("HumanoidRootPart") then
+				-- Add ESP
+				ESP:Add(model.HumanoidRootPart,{
+					Name = v.Name;
+					PrimaryPart = model.HumanoidRootPart;
+					Color = v:FindFirstChild("Legendary") and v.Legendary.Enabled and ESP_Coloring.Enemies.Legendary or v:FindFirstChild("Magical") and v.Magical.Enabled and ESP_Coloring.Enemies.Magical or v:FindFirstChild("Corrupt") and v.Corrupt.Enabled and ESP_Coloring.Enemies.Corrupt or v:FindFirstChild("Bloody") and v.Bloody.Enabled and ESP_Coloring.Enemies.Bloody or ESP_Coloring.Enemies.Other;
+					IsEnabled = "Enemy_Enabled";
+					IsBoxEnabled = "Enemy_Boxes";
+					IsNameEnabled = "Enemy_Names";
+					IsDistanceEnabled = "Enemy_Distances";
+					IsTracerEnabled = "Enemy_Tracers";
+					IsHealthEnabled = "Enemy_Healths";
+					RangeValue = "Enemy_Range";
+					HealthAttributePart = v;
+					HealthAttributeName = "HP";
+					MaxHealthAttributePart = v;
+					MaxHealthAttributeName = "MAXHP";
+				})
+				Instance.new("BoolValue",model).Name = "EGG"
 			end
 		end
-	end
-end
-local function EnemyRemoved(v)
-	local i = table.find(EnemiesChildren, v)
-	if i then
-		table.remove(EnemiesChildren, i)
 	end
 end
 local function DescendantAdded(prompt)
@@ -777,19 +765,6 @@ local function DescendantRemoving(prompt)
 	end
 end
 
-local Added_enemies = npcs_folder.ChildAdded:Connect(EnemyAdded)
-local Removed_enemies = npcs_folder.ChildRemoved:Connect(EnemyRemoved)
---[[
-local Added_interactables = interactables_folder.DescendantAdded:Connect(DescendantAdded)
-local Removed_interactables = interactables_folder.DescendantRemoving:Connect(DescendantRemoving)
-local Added_shrines = shrines_folder.DescendantAdded:Connect(DescendantAdded)
-local Removed_shrines = shrines_folder.DescendantRemoving:Connect(DescendantRemoving)
-local Added_infusers = infusers_folder.DescendantAdded:Connect(DescendantAdded)
-local Removed_infusers = infusers_folder.DescendantRemoving:Connect(DescendantRemoving)
-local Added_others = others_folder.DescendantAdded:Connect(DescendantAdded)
-local Removed_others = others_folder.DescendantRemoving:Connect(DescendantRemoving)
-]]
-
 for _, object in ipairs(npcs_folder:GetChildren()) do
 	EnemyAdded(object)
 end
@@ -809,6 +784,22 @@ if (printconsole) then
 	printconsole('Intiated.', 0,100,255)
 end
 
+local enemyloop = function()
+	debug.profilebegin("Spyblade-EnemyScan")
+	while task.wait(1) do
+		if _G.savedsettings.Enemy_Enabled then
+		    if npcs_folder then
+				-- Get Enemies
+				local npcs_children = npcs_folder:GetChildren()
+				for v in next, npcs_children do
+					EnemyAdded(v)
+				end
+		    end
+		end
+	end
+	debug.profileend()
+end
+
 local saveloop = function()
 	debug.profilebegin("Spyblade-SaveSettings")
 	while task.wait(5) do
@@ -819,5 +810,8 @@ local saveloop = function()
 	end
 	debug.profileend()
 end
+
+local enemycoroutine = coroutine.create(enemyloop)
+coroutine.resume(enemycoroutine)
 local savecoroutine = coroutine.create(saveloop)
 coroutine.resume(savecoroutine)
